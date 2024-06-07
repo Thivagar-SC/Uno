@@ -1,21 +1,39 @@
 import javax.swing.*;
+import java.awt.event.*;
+public class UnoStartUp implements KeyListener
+{
+    UnoModel model = new UnoModel();
 
-public class UnoStartUp{
-    //drgnjhgd
-    //HI MY NAME IS AVANEESH
     public static void main(String[] args)
     {
-        System.out.println("Hello");
-        System.out.println("Tanner is slow in the head");
-
-        JFrame frame = new JFrame();
+        JFrame frame = new JFrame("Uno");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(500, 500);
+        frame.setResizable(false);
         frame.setVisible(true);
-        frame.setTitle("Tanner sucks!");
 
-        JLabel label = new JLabel("Tanner is gay"); //typw 
-        frame.add(label);
+        frame.pack();
 
     }
+
+    @Override
+    public void keyPressed(KeyEvent e)
+    {
+        model.inputForESC(e.getKeyCode());
+    }
+
+    /**
+     * Not set
+     * @param e - Not set
+     */
+    @Override
+    public void keyTyped(KeyEvent e)
+    {}
+
+    /**
+     * Not set
+     * @param e - Not set
+     */
+    @Override
+    public void keyReleased(KeyEvent e)
+    {}
 }
