@@ -1,11 +1,9 @@
 import javax.swing.*;
-import java.awt.event.*;
 import java.awt.*;
 
 public class UnoView extends JPanel
 {
     public static void main(String[] args) {
-        System.out.println("tba");
         ImgComponent a = new ImgComponent("2156_uno_block.png");
         JPanel b = new JPanel();
         JFrame c = new JFrame();
