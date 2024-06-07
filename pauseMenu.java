@@ -13,6 +13,5 @@ public class pauseMenu
     {
         this.view = view;
         buttons = new ArrayList<>();
-        buttons.add(new JButton
     }
 }
