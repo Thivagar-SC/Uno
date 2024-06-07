@@ -1,6 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
+import java.util.*;
 
 public class UnoView extends JPanel
 {
@@ -10,20 +10,23 @@ public class UnoView extends JPanel
         super();
     }
 
-    public static void main(String[] args) { //temporary
-        UnoView gui = new UnoView();
+
+    public void displayCards(){
         ImgComponent a = new ImgComponent("2156_uno_block.png");
         JPanel b = new JPanel();
         JLayeredPane test = new JLayeredPane();
-        gui.setLayout(null);
+        this.setLayout(null);
         b.setPreferredSize(new Dimension(400,400));
-        gui.setSize(new Dimension(500,900));
-            test.setBounds(100,100,300,400);
+        this.setSize(new Dimension(500,900));
+        test.setBounds(100,100,300,400);
+
         //test.setBackground(Color.RED);
         //b.setBackground(Color.RED);
+
         a.setBounds(100, 100,200,300);
         test.add(a);
         b.add(test);
+
         //for (int x = 0; x<1;x++){
             //cards.add(new JLayeredPane());
             //cards.get(x).setBounds(10+x*10,10,100,100);
@@ -32,6 +35,10 @@ public class UnoView extends JPanel
             //cards.get(x).add(a);
         //}
 
-        gui.setVisible(true);
+        this.setVisible(true);
+    }
+
+    public static void main(String[] args) { //temporary
+        
     }
 }
