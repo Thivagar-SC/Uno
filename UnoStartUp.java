@@ -1,4 +1,4 @@
-
+import javax.swing.*;
 
 public class UnoStartUp{
     //drgnjhgd
@@ -7,5 +7,14 @@ public class UnoStartUp{
     {
         System.out.println("Hello");
         System.out.println("Avaneesh is slow in the head");
+
+        JFrame frame = new JFrame();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(500, 500);
+        frame.setVisible(true);
+        frame.setTitle("Avaneesh sucks!");
+
+        JLabel label = new JLabel("Avaneesh is gay");
+        frame.add(label);
     }
 }
