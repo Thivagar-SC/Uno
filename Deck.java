@@ -12,9 +12,20 @@ public class Deck
         deck = new ArrayList<>();
     }
 
-    public void drawCard()
+    /**
+     * Draws the first card in the deck
+     * If deck is empty, call fillDeck() to refill the deck.
+     * @return The card drawn from the deck.
+     */
+    public Card drawCard()
     {
-
+        if (deck.isEmpty())
+        {
+            fillDeck();
+        }
+        Card drawnCard = deck.get(0);
+        deck.remove(0);
+        return drawnCard;
     }
 
     public void removeCard()
