@@ -1,17 +1,36 @@
 import java.awt.*;
-import java.awt.event.KeyEvent;
+import java.awt.event.*;
 
-public class escListener
+public class escListener implements KeyListener, ActionListener
 {
-    public void keyPressed (int keyCode)
-    {
-        if (keyCode == KeyEvent.VK_ESCAPE)
-        {
+    private UnoView view;
 
-        }
+    public void actionPerformed (ActionEvent e)
+    {
+
     }
 
-    public void setPause (boolean isPaused)
+    @Override
+    public void keyPressed(KeyEvent e)
+    {
+        view.escInput(e.getKeyCode());
+    }
+
+    /**
+     * Not set
+     * @param e - Not set
+     */
+    @Override
+    public void keyReleased(KeyEvent e)
+    {
+
+    }
+
+    /**
+     * Not set
+     * @param e - Not set
+     */
+    public void keyTyped (KeyEvent e)
     {
 
     }
