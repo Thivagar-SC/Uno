@@ -12,7 +12,7 @@ public class UnoModel
     private Deck deck;
     private boolean safe;
     private int numberOfRounds;
-    private List<int> points;
+    private List<Integer> points;
     private List<String> winners;
     private BufferedReader input;
     private PrintWriter output;
