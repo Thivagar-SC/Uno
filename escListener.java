@@ -13,7 +13,7 @@ public class escListener implements KeyListener, ActionListener
     @Override
     public void keyPressed(KeyEvent e)
     {
-        view.escInput(e.getKeyCode());
+
     }
 
     /**
