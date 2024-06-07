@@ -17,6 +17,10 @@ public class UnoModel
     private BufferedReader input;
     private PrintWriter output;
 
+    public UnoModel()
+    {
+        super();
+    }
     public void nextTurn(boolean direction, int skip)
     {
 
