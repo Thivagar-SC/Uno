@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.*;
 
 public class Player {
     private String playerName; // name of the plyaer
@@ -52,6 +53,13 @@ public class Player {
     }
 
     public void organizeDeck() {
-        
+        int minIndex;
+        for (int x = 0; x < cards.size(); x++) {
+             minIndex = x;
+             for (int y = x + 1; y < cards.size(); y++){
+                
+             }
+
     }
+}
 }
