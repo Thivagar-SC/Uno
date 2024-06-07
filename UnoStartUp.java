@@ -14,7 +14,8 @@ public class UnoStartUp{
         frame.setVisible(true);
         frame.setTitle("Avaneesh sucks!");
 
-        JLabel label = new JLabel("Avaneesh is gay");
+        JLabel label = new JLabel("Thavarga is gay");
         frame.add(label);
+
     }
 }
