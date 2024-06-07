@@ -5,7 +5,7 @@ import java.util.List;
 
 public class pauseMenu
 {
-    private List<Button> buttons;
+    private List<JButton> buttons;
     private UnoView view;
     private String textMessage;
 
@@ -13,6 +13,6 @@ public class pauseMenu
     {
         this.view = view;
         buttons = new ArrayList<>();
-
+        buttons.add(new JButton
     }
 }
