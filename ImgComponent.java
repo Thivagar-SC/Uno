@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.io.*;;
 
 public class ImgComponent extends JComponent{
     ImageIcon image;
@@ -8,23 +9,11 @@ public class ImgComponent extends JComponent{
         super();
         this.image = new ImageIcon(imageFile);
         this.setPreferredSize(new Dimension(200,300));
-    }
 
-    public ImgComponent(){
-        super();
-        this.image = new ImageIcon(this.getImgFile(null));
-        this.setPreferredSize(new Dimension(200,200));
-    }
-
-    public String getImgFile(JPanel fileholder){
-        JFileChooser chooser = new JFileChooser();
-        int fileSuccess = chooser.showOpenDialog(fileholder);
-        String fileName="";
-        if (fileSuccess==JFileChooser.APPROVE_OPTION){
-            fileName = chooser.getSelectedFile().getName();
+        File test = new File(imageFile);
+        if (!test.exists()){
+            System.err.println("ERROR FINDING IMAGE"); //temporary result
         }
-
-        return fileName;
     }
 
     public void paintComponent(Graphics g){
