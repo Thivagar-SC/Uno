@@ -17,16 +17,16 @@ public class UnoView extends JPanel
         c.setVisible(true);
     }
 
-    public void escInput (int keyCode)
-    {
-        if (keyCode == KeyEvent.VK_ESCAPE)
-        {
-            setPause(pauseMenu.isEnabled());
-        }
-    }
-
-    public void setPause (boolean isPaused)
-    {
-        pauseMenu.setEnabled(isPaused);
-    }
+//    public void escInput (int keyCode)
+//    {
+//        if (keyCode == KeyEvent.VK_ESCAPE)
+//        {
+//            setPause(pauseMenu.isEnabled());
+//        }
+//    }
+//
+//    public void setPause (boolean isPaused)
+//    {
+//        pauseMenu.setEnabled(isPaused);
+//    }
 }
