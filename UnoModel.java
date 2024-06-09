@@ -1,6 +1,10 @@
 import java.util.List;
 import java.io.*;
 
+/**
+ * This class represents the model of the Uno game.
+ * It manages the game state, players, deck, and game logic.
+ */
 public class UnoModel
 {
     private UnoView view;
@@ -17,80 +21,141 @@ public class UnoModel
     private BufferedReader input;
     private PrintWriter output;
 
+    /**
+     * Constructor for UnoModel.
+     */
     public UnoModel()
     {
         super();
     }
+
+    /**
+     * Moves to the next turn.
+     * @param direction true for clockwise, false for counter-clockwise.
+     * @param skip number of players to skip.
+     */
     public void nextTurn(boolean direction, int skip)
     {
 
     }
 
+    /**
+     * Checks if the current round is over.
+     */
     public void checkIfRoundIsOver()
     {
 
     }
 
+    /**
+     * Places a card from a player's hand.
+     * @param cardIndex index of the card in the player's hand.
+     * @param playerID ID of the player placing the card.
+     */
     public void placeCard(int cardIndex, int playerID)
     {
 
     }
 
+    /**
+     * Returns the current player.
+     * @return the current player.
+     */
     public Player getCurrentPlayer()
     {
         return player;
     }
 
+    /**
+     * Sets the pause state of the game.
+     * @param isPaused true if the game is paused, false otherwise.
+     */
     public void setPauseState (boolean isPaused)
     {
 
     }
 
+    /**
+     * Quits the game.
+     */
     public void quitGame()
     {
         System.exit(0);
     }
 
-    public void inputForESC  (int keyCode)
+    /**
+     * Handles input for the ESC key.
+     * @param keyCode - the key code of the pressed key.
+     */
+    public void inputForESC (int keyCode)
     {
 
     }
 
+    /**
+     * Changes the color of the next card to be played.
+     * @param colour - the new color.
+     */
     public void changeColour(int colour)
     {
 
     }
 
+    /**
+     * Returns the current color of the next card to be played.
+     * @return the current color.
+     */
     public int getColour()
     {
         return 0; //placeholder
     }
 
+    /**
+     * Sets the UNO state for the current player.
+     */
     public void setUNOState()
     {
 
     }
 
+    /**
+     * Checks if the current player is safe.
+     * @return - true if the player is safe, false otherwise.
+     */
     public boolean isSafe()
     {
         return true; //placeholder
     }
 
+    /**
+     * Starts the game.
+     */
     public void startGame()
     {
 
     }
 
+    /**
+     * Moves to the next round.
+     */
     public void nextRound()
     {
 
     }
 
+    /**
+     * Ends the game.
+     */
     public void endGame()
     {
 
     }
 
+    /**
+     * Checks if a card is legal to play.
+     * @param card - the card to check.
+     * @return - true if the card is legal, false otherwise.
+     */
     public boolean isLegal(Card card)
     {
         return true; //placeholder

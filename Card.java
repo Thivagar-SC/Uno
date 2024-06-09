@@ -1,12 +1,12 @@
 public class Card
 {
     private static int cardFaceValue;  //value of card
-    private String color; //color of card
+    private int colour; //color of card
 
-    public Card(int cardFaceValue, String color)
+    public Card(int cardFaceValue, int colour)
     {
         this.cardFaceValue = cardFaceValue;
-        this.color = color;
+        this.colour = colour;
     }
 
     public int getValue()
@@ -14,7 +14,7 @@ public class Card
         return getValue();
     }
 
-    public String getColour()
+    public int getColour()
     {
         return getColour();
     }
