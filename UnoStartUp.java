@@ -1,10 +1,11 @@
 import java.awt.Dimension;
 
 import javax.swing.*;
+import java.awt.event.*;
+public class UnoStartUp implements KeyListener
+{
+    UnoModel model = new UnoModel();
 
-public class UnoStartUp{
-    //drgnjhgd
-    //HI MY NAME IS AVANEESH
     public static void main(String[] args)
     {
 
@@ -16,4 +17,26 @@ public class UnoStartUp{
         test.setVisible(true);
 
     }
+
+    @Override
+    public void keyPressed(KeyEvent e)
+    {
+        model.inputForESC(e.getKeyCode());
+    }
+
+    /**
+     * Not set
+     * @param e - Not set
+     */
+    @Override
+    public void keyTyped(KeyEvent e)
+    {}
+
+    /**
+     * Not set
+     * @param e - Not set
+     */
+    @Override
+    public void keyReleased(KeyEvent e)
+    {}
 }
