@@ -16,6 +16,8 @@ public class UnoModel
     private Deck deck;
     private boolean safe;
     private int numberOfRounds;
+    private List<Card> recentCards;
+    private List<Card> cardsInHand;
     private List<Integer> points;
     private List<String> winners;
     private BufferedReader input;
@@ -44,7 +46,11 @@ public class UnoModel
      */
     public void checkIfRoundIsOver()
     {
-
+        if (player.getHand().size() == 0)
+        {
+            int totalScore = 0;
+        }
+        player.setWon();
     }
 
     /**
