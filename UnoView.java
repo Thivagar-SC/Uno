@@ -41,30 +41,27 @@ public class UnoView extends JPanel
         this.setLayout(null);
 
         this.card0 = new RoundedJPane(1);
-        this.card0.setBounds(100,100,200,300);
-        this.card1.setBounds(120,100,200,300);
-        this.card2.setBounds(140,100,200,300);
-        this.card3.setBounds(160,100,200,300);
-        this.card4.setBounds(180,100,200,300);
+        this.card0.setBounds(100,100,211,336);
+        this.card1.setBounds(120,100,211,336);
+        this.card2.setBounds(140,100,211,336);
+        this.card3.setBounds(160,100,211,336);
+        this.card4.setBounds(180,100,211,336);
         this.placeholder = new ImgComponent("UNO_TransparrentTest.png");
-        this.card0.setBackground(Color.BLUE);
-        this.card0.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 6, true));
-        //this.card0.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
-        this.card0.setOpaque(true);
+
         this.card0.add(this.placeholder);
-        this.placeholder.setBounds(100, 100,200,300);
+        this.placeholder.setBounds(0, 0,200,300);
         this.placeholder2 = new ImgComponent("UNO_TransparrentTest.png");
         this.card1.add(this.placeholder2);
-        this.placeholder2.setBounds(100, 100,200,300);
+        this.placeholder2.setBounds(0, 0,200,300);
         this.placeholder3 = new ImgComponent("UNO_TransparrentTest.png");
         this.card2.add(this.placeholder3);
-        this.placeholder3.setBounds(100, 100,200,300);
+        this.placeholder3.setBounds(0, 0,200,300);
         this.placeholder4 = new ImgComponent("UNO_TransparrentTest.png");
         this.card3.add(this.placeholder4);
-        this.placeholder4.setBounds(100, 100,200,300);
+        this.placeholder4.setBounds(0, 0,200,300);
         this.placeholder5 = new ImgComponent("UNO_TransparrentTest.png");
         this.card4.add(this.placeholder5);
-        this.placeholder5.setBounds(100, 100,200,300);
+        this.placeholder5.setBounds(0, 0,200,300);
 
         
 
