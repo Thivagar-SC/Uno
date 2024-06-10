@@ -12,7 +12,7 @@ public class UnoStartUp implements KeyListener
         UnoView a = new UnoView();
         JFrame test = new JFrame();
         test.setSize(new Dimension(1000,1000));
-        a.displayCards3();
+
         test.setContentPane(a);
         test.setVisible(true);
 
