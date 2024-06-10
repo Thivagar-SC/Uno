@@ -11,12 +11,12 @@ public class Card
 
     public int getValue()
     {
-        return getValue();
+        return cardFaceValue;
     }
 
     public int getColour()
     {
-        return getColour();
+        return colour;
     }
 
 }
