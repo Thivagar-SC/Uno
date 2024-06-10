@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.*;
 
 public class Player {
-    private String playerName; // name of the plyaer
+    private String playerName; // name of the player
     private boolean wonRound; // if player won or not
     private int totalScore; // score of player
     private int playerNumber; // value of player (determines order)
