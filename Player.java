@@ -10,6 +10,7 @@ public class Player {
     private String source;//Reason for drawing cards
     private boolean selectable; 
 
+
     public Player(int playerNumber, String playerName) {
         this.playerNumber = playerNumber;
         this.playerName = playerName;
@@ -24,6 +25,7 @@ public class Player {
         cards.add(card);
         this.source = source;
     }
+        
 
     public void placeCard(int cardIndex) {
         cards.remove(cardIndex);
@@ -52,6 +54,10 @@ public class Player {
     public int getTotalScore() {
         return totalScore;
     }
+    public int GetPlayerID()
+    {
+        return playerNumber;
+    }    
 
     public void organizeHand() {
         sortByColour();

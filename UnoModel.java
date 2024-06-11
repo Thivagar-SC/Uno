@@ -58,10 +58,14 @@ public class UnoModel
      * @param cardIndex index of the card in the player's hand.
      * @param playerID ID of the player placing the card.
      */
-    public void placeCard(int cardIndex, int playerID) //Avaneesh
-    {
-
-    }
+        public void placeCard(int cardIndex, int playerID) //Avaneesh
+        {
+            //remove the card from the players hand and add it to currentCard
+            //setting next players turn 
+            //only runs if the card is legal to play
+            //if its a reverse it should change order
+            //if it blocks it should block players turn 
+        }
 
     /**
      * Returns the current player.
