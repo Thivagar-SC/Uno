@@ -1,3 +1,4 @@
+import java.awt.event.KeyEvent;
 import java.util.List;
 import java.io.*;
 
@@ -95,6 +96,10 @@ public class UnoModel
      */
     public void inputForESC (int keyCode)
     {
+        if (keyCode == KeyEvent.VK_ESCAPE)
+        {
+            setPauseState(true);
+        }
 
     }
 
@@ -108,10 +113,10 @@ public class UnoModel
     }
 
     /**
-     * Returns the current color of the next card to be played.
-     * @return the current color.
+     * Returns the current colour of the next card to be played.
+     * @return the current colour.
      */
-    public int getColour()
+    public int getCurrentColour()
     {
         return 0; //placeholder
     }

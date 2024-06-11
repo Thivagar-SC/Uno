@@ -1,11 +1,12 @@
 import java.awt.*;
 import java.awt.event.*;
 
-public class escListener implements KeyListener, ActionListener
+public class escListener implements KeyListener//, ActionListener
 {
     private UnoView view;
+    private UnoModel model;
 
-    public void actionPerformed (ActionEvent e)
+    //public void actionPerformed (ActionEvent e)
     {
 
     }
@@ -13,7 +14,7 @@ public class escListener implements KeyListener, ActionListener
     @Override
     public void keyPressed(KeyEvent e)
     {
-
+        model.inputForESC(e.getKeyCode());
     }
 
     /**
@@ -21,17 +22,14 @@ public class escListener implements KeyListener, ActionListener
      * @param e - Not set
      */
     @Override
-    public void keyReleased(KeyEvent e)
-    {
-
-    }
+    public void keyTyped(KeyEvent e)
+    {}
 
     /**
      * Not set
      * @param e - Not set
      */
-    public void keyTyped (KeyEvent e)
-    {
-
-    }
+    @Override
+    public void keyReleased(KeyEvent e)
+    {}
 }
