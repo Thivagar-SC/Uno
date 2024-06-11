@@ -11,7 +11,7 @@ public class ImgComponent extends JComponent{
     public ImgComponent(String imageFile){
         super();
 
-        this.image = new ImageIcon(imageFile);
+        this.image = new ImageIcon(imageFile);//g
         this.setPreferredSize(new Dimension(200,300));
     }
 
