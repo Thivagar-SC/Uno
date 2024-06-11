@@ -24,7 +24,7 @@ public class RoundedJPane extends JLayeredPane {
 
     public void paintComponent(Graphics g) {
         setColor(this.currentColour, g);
-        g.fillRoundRect(0, 0, 200, 300, 50, 50);
+        g.fillRoundRect(0, 0, 200, 300, this.radius, this.radius);
         super.paintComponent(g);
 
     }
