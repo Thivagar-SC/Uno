@@ -8,7 +8,7 @@ public class Player {
     private int playerNumber; // value of player (determines order)
     private ArrayList<Card> cards; //List of cards player has
     private String source;//Reason for drawing cards
-    private boolean selectable;
+    private boolean selectable; 
 
     public Player(int playerNumber, String playerName) {
         this.playerNumber = playerNumber;
