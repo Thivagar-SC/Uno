@@ -58,7 +58,7 @@ public class UnoModel
      * @param cardIndex index of the card in the player's hand.
      * @param playerID ID of the player placing the card.
      */
-    public void placeCard(int cardIndex, int playerID)
+    public void placeCard(int cardIndex, int playerID) //Avaneesh
     {
 
     }
@@ -102,24 +102,25 @@ public class UnoModel
      * Changes the color of the next card to be played.
      * @param colour - the new color.
      */
-    public void changeColour(int colour)
+    public void changeColour(int colour)  
     {
-
+        currentlyPlacedCard.changeColour(colour);
     }
 
     /**
      * Returns the current color of the next card to be played.
      * @return the current color.
      */
-    public int getColour()
-    {
-        return 0; //placeholder
+    public int getColour()  
+    {   
+        
+        return currentlyPlacedCard.getColour();
     }
 
     /**
      * Sets the UNO state for the current player.
      */
-    public void setUNOState()
+    public void setUNOState() //Avaneesh
     {
 
     }

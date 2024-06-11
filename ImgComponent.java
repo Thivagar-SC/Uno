@@ -12,6 +12,9 @@ public class ImgComponent extends JComponent{
         holder = new File(getClass().getResource("ImgHolder").getFile());
         File[] test2 = holder.listFiles();
         System.out.println(holder);
+        for (int x = 0; x<holder.length();x++){
+            System.out.println(test2[x]);
+        }
         try {
             this.image = new ImageIcon(test2[1].getCanonicalPath());
         } catch (Exception e) {

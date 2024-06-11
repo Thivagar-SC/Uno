@@ -24,7 +24,7 @@ public class UnoView extends JPanel
     public UnoView(){
         super();
         this.displayCards3();
-        this.registerControllers();
+        //this.registerControllers();
     }
 
     public void displayCards3(){ //another test

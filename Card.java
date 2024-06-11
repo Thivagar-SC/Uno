@@ -1,7 +1,7 @@
 public class Card
 {
     private final int cardFaceValue;  //value of card
-    private final int colour; //color of card
+    private int colour; //color of card
 
     public Card(int cardFaceValue, int colour)
     {
@@ -18,6 +18,10 @@ public class Card
     public int getColour()
     {
         return colour;
+    }
+    public void changeColour(int newColour)
+    {
+         colour = newColour;
     }
 
 }
