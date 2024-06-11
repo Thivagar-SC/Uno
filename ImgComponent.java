@@ -11,7 +11,12 @@ public class ImgComponent extends JComponent{
         super();
         holder = new File(getClass().getResource("ImgHolder").getFile());
         File[] test2 = holder.listFiles();
-        this.image = new ImageIcon(test2[1].getAbsolutePath());
+        System.out.println(holder);
+        try {
+            this.image = new ImageIcon(test2[1].getCanonicalPath());
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
         this.setPreferredSize(new Dimension(200,300));
         //a = new JFileChooser("ImgHolder");
         //System.out.println(image.getImage().);
