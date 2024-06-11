@@ -1,6 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
-import java.io.*;;
+import java.io.*;
 
 public class ImgComponent extends JComponent{
     ImageIcon image;

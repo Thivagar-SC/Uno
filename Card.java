@@ -1,10 +1,11 @@
 public class Card
 {
-    private static int cardFaceValue;  //value of card
-    private int colour; //color of card
+    private final int cardFaceValue;  //value of card
+    private final int colour; //color of card
 
     public Card(int cardFaceValue, int colour)
     {
+        super();
         this.cardFaceValue = cardFaceValue;
         this.colour = colour;
     }
