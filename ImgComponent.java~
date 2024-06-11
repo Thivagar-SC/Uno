@@ -6,14 +6,12 @@ public class ImgComponent extends JComponent{
     ImageIcon image;
     File holder;
     JFileChooser a;
-    File[] test2;
 
     public ImgComponent(String imageFile){
         super();
         holder = new File(getClass().getResource("ImgHolder").getFile());
-        test2 = holder.listFiles();
-        System.out.println(holder.);
-        System.out.println(holder+" THIS IS THES DRNGJNHRDUGH");
+        File[] test2 = holder.listFiles();
+        System.out.println(holder);
         try {
             this.image = new ImageIcon(test2[1].getCanonicalPath());
         } catch (Exception e) {
@@ -24,14 +22,14 @@ public class ImgComponent extends JComponent{
         //System.out.println(image.getImage().);
 
         File test = new File(imageFile);
-        //if (!test.exists()){
-          //  System.err.println("ERROR FINDING IMAGE"); //temporary result
-        //}
+        if (!test.exists()){
+            System.err.println("ERROR FINDING IMAGE"); //temporary result
+        }
     }
 
     public void paintComponent(Graphics g){
         super.paintComponent(g);
-        Image pic = this.image.getImage();
+        Image pic = image.getImage();
         g.drawImage(pic, 0, 0,200,300, null);
     }
 }
