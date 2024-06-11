@@ -1,6 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class ImgComponent extends JComponent{
     ImageIcon image;
@@ -12,7 +15,7 @@ public class ImgComponent extends JComponent{
         super();
         holder = new File(getClass().getResource("ImgHolder").getFile());
         test2 = holder.listFiles();
-        System.out.println(holder.);
+
         System.out.println(holder+" THIS IS THES DRNGJNHRDUGH");
         try {
             this.image = new ImageIcon(test2[1].getCanonicalPath());
@@ -28,6 +31,7 @@ public class ImgComponent extends JComponent{
           //  System.err.println("ERROR FINDING IMAGE"); //temporary result
         //}
     }
+
 
     public void paintComponent(Graphics g){
         super.paintComponent(g);
