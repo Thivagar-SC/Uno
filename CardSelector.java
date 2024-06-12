@@ -19,6 +19,7 @@ public class CardSelector implements MouseListener
             }
         }
         System.out.println("Mouse Exited");
+        this.b.refresh();
         
     }
     public void mouseReleased(MouseEvent e){
@@ -34,7 +35,7 @@ public class CardSelector implements MouseListener
                 this.b.getCards().get(x).setBounds(this.b.getCards().get(x).getX(),40,211,336);
             }
         }
-    
+        this.b.refresh();
     }
     public void mousePressed(MouseEvent e){
         

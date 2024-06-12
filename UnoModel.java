@@ -148,11 +148,15 @@ public class UnoModel
     {
         int numberRounds;
         String nameOfPlayer;
-
+        this.menuSelection = false;
         nameOfPlayer = this.view.getPlayerName();
         numberRounds = this.view.getRounds();
         if (numberRounds>0){
+            this.numberOfRounds = numberRounds;
             player = new Player(4, nameOfPlayer); //player number temporary
+        }
+        else{
+            this.numberOfRounds = -1;
         }
         
         this.view.update();

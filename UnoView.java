@@ -9,7 +9,7 @@ public class UnoView extends JPanel
 {
     private UnoModel model;
     private ArrayList<RoundedJPane> cards = new ArrayList <RoundedJPane>();
-    RoundedJPane card0;
+    RoundedJPane card0 =  new RoundedJPane(50,3);
     RoundedJPane card1 = new RoundedJPane(50,2);
     RoundedJPane card2 = new RoundedJPane(50,4);
     RoundedJPane card3 = new RoundedJPane(50,0);
@@ -93,7 +93,6 @@ public class UnoView extends JPanel
     public void displayCards3(){ //another test
         this.removeAll();
         this.setLayout(null);
-        this.card0 = new RoundedJPane(50,3);
         this.card0.setBounds(100,100,211,336);
         this.card1.setBounds(150,100,211,336);
         this.card2.setBounds(200,100,211,336);
@@ -128,7 +127,7 @@ public class UnoView extends JPanel
         this.add(this.card3);
         this.add(this.card4);
 
-
+        this.registerControllers();
         this.refresh();
     }
 
@@ -160,6 +159,10 @@ public class UnoView extends JPanel
       else if (this.model.getNumberOfRound()>=0){
         this.displayCards3();
       }
+      else if (this.model.getNumberOfRound()<0){
+        this.roundInput.setText("Input a valid number");
+      }
+      System.out.println(this.model.getNumberOfRound());
 
       this.refresh();
   }
