@@ -65,7 +65,8 @@ public class Deck
     /** Sets whether the deck is selectable.
      *  @param selectable
      */
-    public void setSelectable(boolean selectable) {
-        // TODO: Implement selectable logic
+    public void setSelectable(boolean selectable)
+    {
+
     }
 }

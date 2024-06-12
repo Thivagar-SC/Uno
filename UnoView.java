@@ -7,13 +7,13 @@ import java.util.*;
 
 public class UnoView extends JPanel
 {
-    private static ArrayList<RoundedJPane> cards = new ArrayList <RoundedJPane>();
+    private UnoModel model;
+    private ArrayList<RoundedJPane> cards = new ArrayList <RoundedJPane>();
     RoundedJPane card0;
     RoundedJPane card1 = new RoundedJPane(50,2);
     RoundedJPane card2 = new RoundedJPane(50,4);
     RoundedJPane card3 = new RoundedJPane(50,0);
     RoundedJPane card4 = new RoundedJPane(50,1);
-
 
     ImgComponent placeholder;
     ImgComponent placeholder2;
@@ -21,10 +21,28 @@ public class UnoView extends JPanel
     ImgComponent placeholder4;
     ImgComponent placeholder5;
 
-    public UnoView(){
+    private JPanel menu;
+    private JPanel gameSelect;
+    private JButton startGame;
+    private JTextArea numberOfRounds;
+    private JTextArea playerName;
+
+    public UnoView(UnoModel uModel){
         super();
+        this.model = uModel;
         this.displayCards3();
         //this.registerControllers();
+    }
+
+    public void mainMenu(){
+      this.removeAll();
+      
+    }
+
+    public void setHand(){
+      for (int x = 0; x<this.model.getCurrentPlayer().getHand().size();x++){
+        this.cards.add(new RoundedJPane(50, this.model.getCurrentPlayer().getHand().get(x).getColour()));
+      }
     }
 
     public void displayCards3(){ //another test
@@ -86,5 +104,6 @@ public class UnoView extends JPanel
   public ArrayList<RoundedJPane> getCards(){
     return this.cards;
   }
+
 
 }

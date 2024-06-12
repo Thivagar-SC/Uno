@@ -5,13 +5,13 @@ import java.util.List;
 
 public class pauseMenu
 {
-    private List<JButton> buttons;
-    private UnoView view;
+    private UnoModel model;
     private String textMessage;
 
-    public pauseMenu(UnoView view)
+    public pauseMenu(UnoModel model)
     {
-        this.view = view;
-        buttons = new ArrayList<>();
+        this.model = model;
     }
+
+
 }
