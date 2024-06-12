@@ -20,9 +20,12 @@ public class UnoModel
     private List<Card> recentCards;
     private List<Card> cardsInHand;
     private List<Integer> points;
-    private List<String> winners;
+    private List<String> winners;private List<Player> players;
     private BufferedReader input;
     private PrintWriter output;
+
+    //GUI variables
+    private boolean menuSelection;
 
     /**
      * Constructor for UnoModel.
@@ -47,11 +50,14 @@ public class UnoModel
      */
     public void checkIfRoundIsOver()
     {
-        if (player.getHand().size() == 0)
+        for (Player player: players)
         {
-            int totalScore = 0;
+            if (player.getHand().isEmpty())
+            {
+                int totalScore = 0;
+                player.setWon();
+            }
         }
-        player.setWon();
     }
 
     /**
@@ -147,7 +153,50 @@ public class UnoModel
      */
     public void startGame()
     {
+        int numberRounds;
+        String nameOfPlayer;
+        this.menuSelection = false;
+        nameOfPlayer = this.view.getPlayerName();
+        numberRounds = this.view.getRounds();
+        if (numberRounds>0){
+            this.numberOfRounds = numberRounds;
+            player = new Player(4, nameOfPlayer); //player number temporary
+            this.deck = new Deck();
+            for (int x = 1; x<=7;x++){
+                this.player.addCard(this.deck.drawCard(), "TBA");
+            }
+        }
+        else{
+            this.numberOfRounds = -1;
+        }
+        
+        this.view.update();
+    }
 
+    public void raiseCard(Object card){
+        this.view.raiseCard(card);
+    }
+
+    public void dropCard(Object card){
+        this.view.dropCard(card);
+    }
+
+    //ta=ba
+    public int getNumberOfRound(){
+        return this.numberOfRounds;
+    }
+
+    /**
+     * Starts game startup
+     */
+    public void startSelection(){
+        this.menuSelection = true;
+        this.view.update();
+    }
+
+    //tba
+    public boolean getMenuSelect(){
+        return this.menuSelection;
     }
 
     /**
@@ -174,5 +223,9 @@ public class UnoModel
     public boolean isLegal(Card card)
     {
         return true; //placeholder
+    }
+
+    public void setGUI(UnoView gui){
+        this.view = gui;
     }
 }
