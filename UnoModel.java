@@ -24,6 +24,9 @@ public class UnoModel
     private BufferedReader input;
     private PrintWriter output;
 
+    //GUI variables
+    private boolean menuSelection;
+
     /**
      * Constructor for UnoModel.
      */
@@ -143,7 +146,34 @@ public class UnoModel
      */
     public void startGame()
     {
+        int numberRounds;
+        String nameOfPlayer;
 
+        nameOfPlayer = this.view.getPlayerName();
+        numberRounds = this.view.getRounds();
+        if (numberRounds>0){
+            player = new Player(4, nameOfPlayer); //player number temporary
+        }
+        
+        this.view.update();
+    }
+
+    //ta=ba
+    public int getNumberOfRound(){
+        return this.numberOfRounds;
+    }
+
+    /**
+     * Starts game startup
+     */
+    public void startSelection(){
+        this.menuSelection = true;
+        this.view.update();
+    }
+
+    //tba
+    public boolean getMenuSelect(){
+        return this.menuSelection;
     }
 
     /**
@@ -170,5 +200,9 @@ public class UnoModel
     public boolean isLegal(Card card)
     {
         return true; //placeholder
+    }
+
+    public void setGUI(UnoView gui){
+        this.view = gui;
     }
 }
