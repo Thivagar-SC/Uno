@@ -20,7 +20,7 @@ public class UnoModel
     private List<Card> recentCards;
     private List<Card> cardsInHand;
     private List<Integer> points;
-    private List<String> winners;
+    private List<String> winners;private List<Player> players;
     private BufferedReader input;
     private PrintWriter output;
 
@@ -47,11 +47,14 @@ public class UnoModel
      */
     public void checkIfRoundIsOver()
     {
-        if (player.getHand().size() == 0)
+        for (Player player: players)
         {
-            int totalScore = 0;
+            if (player.getHand().isEmpty())
+            {
+                int totalScore = 0;
+                player.setWon();
+            }
         }
-        player.setWon();
     }
 
     /**

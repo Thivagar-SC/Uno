@@ -9,7 +9,7 @@ public class Deck
 {
     //Variable declarations
     private List<Card> deck;        //List of cards in the deck
-    private boolean selectable;     //Sets selectable to not equal itself
+    private boolean selectable = true;     //Sets selectable to not equal itself
 
     /** Default constructor */
     public Deck()
