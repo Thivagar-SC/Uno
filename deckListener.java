@@ -13,6 +13,7 @@ public class deckListener implements MouseListener{
     public void mouseReleased(MouseEvent e){
     }
     public void mouseClicked(MouseEvent e){
+        System.out.println("CLICK");
         this.model.drawCard();
     }
     public void mouseEntered(MouseEvent e){
