@@ -9,11 +9,11 @@ public class UnoView extends JPanel
 {
     private UnoModel model;
     private ArrayList<RoundedJPane> cards = new ArrayList <RoundedJPane>();
-    RoundedJPane card0 =  new RoundedJPane(50,3);
-    RoundedJPane card1 = new RoundedJPane(50,2);
-    RoundedJPane card2 = new RoundedJPane(50,4);
-    RoundedJPane card3 = new RoundedJPane(50,0);
-    RoundedJPane card4 = new RoundedJPane(50,1);
+    RoundedJPane card0 =  new RoundedJPane(60,3);
+    RoundedJPane card1 = new RoundedJPane(60,2);
+    RoundedJPane card2 = new RoundedJPane(60,4);
+    RoundedJPane card3 = new RoundedJPane(60,0);
+    RoundedJPane card4 = new RoundedJPane(60,1);
 
     ImgComponent placeholder;
     ImgComponent placeholder2;
@@ -58,7 +58,7 @@ public class UnoView extends JPanel
       this.startGame.setText("Start");
       this.startGame.setPreferredSize(new Dimension(200,100));
 
-      this.setBackground(Color.RED);
+      this.setBackground(Color.LIGHT_GRAY);
       this.menu.add(this.startGame);
       this.add(this.menu,BorderLayout.WEST);
     }
@@ -86,7 +86,7 @@ public class UnoView extends JPanel
 
     public void setHand(){
       for (int x = 0; x<this.model.getCurrentPlayer().getHand().size();x++){
-        this.cards.add(new RoundedJPane(50, this.model.getCurrentPlayer().getHand().get(x).getColour()));
+        this.cards.add(new RoundedJPane(60, this.model.getCurrentPlayer().getHand().get(x).getColour()));
       }
     }
 
@@ -98,20 +98,20 @@ public class UnoView extends JPanel
         this.card2.setBounds(200,100,211,336);
         this.card3.setBounds(250,100,211,336);
         this.card4.setBounds(300,100,211,336);
-        this.placeholder = new ImgComponent("UNO_TransparrentTest.png");
+        this.placeholder = new ImgComponent("14.png");
 
         this.card0.add(this.placeholder);
         this.placeholder.setBounds(0, 0,211,336);
-        this.placeholder2 = new ImgComponent("UNO_TransparrentTest.png");
+        this.placeholder2 = new ImgComponent("12.png");
         this.card1.add(this.placeholder2);
         this.placeholder2.setBounds(0, 0,211,336);
-        this.placeholder3 = new ImgComponent("UNO_TransparrentTest.png");
+        this.placeholder3 = new ImgComponent("1.png");
         this.card2.add(this.placeholder3);
         this.placeholder3.setBounds(0, 0,211,336);
-        this.placeholder4 = new ImgComponent("UNO_TransparrentTest.png");
+        this.placeholder4 = new ImgComponent("4.png");
         this.card3.add(this.placeholder4);
         this.placeholder4.setBounds(0, 0,211,336);
-        this.placeholder5 = new ImgComponent("UNO_TransparrentTest.png");
+        this.placeholder5 = new ImgComponent("2.png");
         this.card4.add(this.placeholder5);
         this.placeholder5.setBounds(0, 0,211,336);
 
