@@ -15,6 +15,7 @@ public class UnoView extends JPanel
     private JTextField roundInput = new JTextField();
     private JTextField nameInput = new JTextField();
     private JButton playGame = new JButton();
+    private RoundedJPane deck;
 
     public UnoView(UnoModel uModel){
         super();
@@ -22,6 +23,7 @@ public class UnoView extends JPanel
         this.mainMenu();
         this.registerControllers();
         this.model.setGUI(this);
+        this.deck = new RoundedJPane(50, 4);
     }
 
     public String getPlayerName(){
@@ -77,6 +79,14 @@ public class UnoView extends JPanel
       }
     }
 
+    public void displayDeck(){
+        ImgComponent img = new ImgComponent("_HiddenCard.png");
+        this.deck.setBounds(50,100,211,336);
+        img.setBounds(0,0,211,336);
+        this.deck.add(img);
+        this.add(deck);
+    }
+
     public void displayCards3(){ //another test
       this.setHand();
       this.removeAll();
@@ -85,7 +95,7 @@ public class UnoView extends JPanel
         ImgComponent img;
         for (int x = 0; x< this.model.getCurrentPlayer().getHand().size();x++){
           Card currentCard = this.model.getCurrentPlayer().getHand().get(x);
-          this.cards.get(x).setBounds(50+50*x,100,211,336);
+          this.cards.get(x).setBounds(50+50*x,500,211,336);
           img = new ImgComponent(currentCard.getValue()+".png".trim());
           img.setBounds(0,0,211,336);
           this.cards.get(x).add(img);
@@ -120,7 +130,7 @@ public class UnoView extends JPanel
   public void raiseCard(Object aCard){
     for (int x = 0; x<this.cards.size();x++){
       if (this.cards.get(x).equals(aCard)){
-        this.cards.get(x).setBounds(this.cards.get(x).getX(),40,211,336);
+        this.cards.get(x).setBounds(this.cards.get(x).getX(),440,211,336);
       }
     }
     this.refresh();
@@ -129,7 +139,7 @@ public class UnoView extends JPanel
   public void dropCard(Object aCard){
     for (int x = 0; x<this.cards.size();x++){
       if (this.cards.get(x).equals(aCard)){
-        this.cards.get(x).setBounds(this.cards.get(x).getX(),100,211,336);
+        this.cards.get(x).setBounds(this.cards.get(x).getX(),500,211,336);
       }
     }
     this.refresh();
@@ -142,6 +152,7 @@ public class UnoView extends JPanel
       }
       else if (this.model.getNumberOfRound()>=0){
         this.displayCards3();
+        this.displayDeck();
       }
       else if (this.model.getNumberOfRound()<0){
         this.roundInput.setText("Input a valid number");

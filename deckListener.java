@@ -1,29 +1,24 @@
-
 import java.awt.event.*;
 
-public class CardSelector implements MouseListener
-{
+public class deckListener implements MouseListener{
     private UnoModel model;
 
-     public CardSelector(UnoModel c){
-        this.model = c;
+    public deckListener(UnoModel model){
+        this.model = model;
     }
 
     public void mouseExited(MouseEvent e){
-        this.model.dropCard(e.getSource());
         
     }
     public void mouseReleased(MouseEvent e){
-        System.out.println("Mouse Released");
     }
     public void mouseClicked(MouseEvent e){
-        System.out.println("Mouse Clicked");
+        //this.model.
     }
     public void mouseEntered(MouseEvent e){
-        this.model.raiseCard(e.getSource());
     }
     public void mousePressed(MouseEvent e){
-        
 
     }
+ 
 }
