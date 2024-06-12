@@ -111,12 +111,14 @@ public class UnoView extends JPanel
     //Variable Declaration
     CardSelector setup = new CardSelector(this.model); //Setup
     MenuListener mSelect = new MenuListener(this.model);
+    deckListener addCard = new deckListener(this.model);
     
     //set listeners
     if (this.model.getNumberOfRound()>0){
     for (int x = 0; x<cards.size();x++){
         this.cards.get(x).addMouseListener(setup);
     }
+    this.deck.addMouseListener(addCard);
   }
 
     this.startGame.addActionListener(mSelect);
@@ -157,7 +159,7 @@ public class UnoView extends JPanel
       else if (this.model.getNumberOfRound()<0){
         this.roundInput.setText("Input a valid number");
       }
-      System.out.println(this.model.getNumberOfRound());
+      System.out.println("UPDATE");
 
       this.refresh();
   }

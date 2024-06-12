@@ -224,4 +224,9 @@ public class UnoModel
     public void setGUI(UnoView gui){
         this.view = gui;
     }
+
+    public void drawCard(){
+        this.player.addCard(this.deck.drawCard(), "TBA");
+        this.view.update();
+    }
 }

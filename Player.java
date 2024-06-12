@@ -22,7 +22,7 @@ public class Player {
 
     public void addCard(Card card, String source) {
 
-        cards.add(card);
+        this.cards.add(card);
         this.source = source;
     }
 
