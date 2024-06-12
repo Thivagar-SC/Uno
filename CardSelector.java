@@ -4,22 +4,16 @@ import java.awt.event.*;
 
 public class CardSelector implements MouseListener
 {
-    private UnoView b;
+    private UnoModel model;
 
-     public CardSelector(UnoView c){
-        this.b = c;
+     public CardSelector(UnoModel c){
+        this.model = c;
     }
 
     public void actionPerformed(ActionEvent e){}
 
     public void mouseExited(MouseEvent e){
-        for (int x = 0; x<b.getCards().size();x++){
-            if (e.getSource().equals(b.getCards().get(x))){
-                this.b.getCards().get(x).setBounds(this.b.getCards().get(x).getX(),100,211,336);
-            }
-        }
-        System.out.println("Mouse Exited");
-        this.b.refresh();
+        this.model.dropCard(e.getSource());
         
     }
     public void mouseReleased(MouseEvent e){
@@ -27,15 +21,9 @@ public class CardSelector implements MouseListener
     }
     public void mouseClicked(MouseEvent e){
         System.out.println("Mouse Clicked");
-
     }
     public void mouseEntered(MouseEvent e){
-        for (int x = 0; x<b.getCards().size();x++){
-            if (e.getSource().equals(b.getCards().get(x))){
-                this.b.getCards().get(x).setBounds(this.b.getCards().get(x).getX(),40,211,336);
-            }
-        }
-        this.b.refresh();
+        this.model.raiseCard(e.getSource());
     }
     public void mousePressed(MouseEvent e){
         

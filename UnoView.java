@@ -99,14 +99,15 @@ public class UnoView extends JPanel
     public void registerControllers()
   {
     //Variable Declaration
-    CardSelector setup = new CardSelector(this); //Setup
+    CardSelector setup = new CardSelector(this.model); //Setup
     MenuListener mSelect = new MenuListener(this.model);
     
     //set listeners
+    if (this.model.getNumberOfRound()>0){
     for (int x = 0; x<cards.size();x++){
         this.cards.get(x).addMouseListener(setup);
     }
-    this.addMouseListener(setup);
+  }
 
     this.startGame.addActionListener(mSelect);
     this.playGame.addActionListener(mSelect);
@@ -114,6 +115,24 @@ public class UnoView extends JPanel
   
   public ArrayList<RoundedJPane> getCards(){
     return this.cards;
+  }
+
+  public void raiseCard(Object aCard){
+    for (int x = 0; x<this.cards.size();x++){
+      if (this.cards.get(x).equals(aCard)){
+        this.cards.get(x).setBounds(this.cards.get(x).getX(),40,211,336);
+      }
+    }
+    this.refresh();
+  }
+
+  public void dropCard(Object aCard){
+    for (int x = 0; x<this.cards.size();x++){
+      if (this.cards.get(x).equals(aCard)){
+        this.cards.get(x).setBounds(this.cards.get(x).getX(),100,211,336);
+      }
+    }
+    this.refresh();
   }
 
   public void update(){

@@ -169,6 +169,14 @@ public class UnoModel
         this.view.update();
     }
 
+    public void raiseCard(Object card){
+        this.view.raiseCard(card);
+    }
+
+    public void dropCard(Object card){
+        this.view.dropCard(card);
+    }
+
     //ta=ba
     public int getNumberOfRound(){
         return this.numberOfRounds;
