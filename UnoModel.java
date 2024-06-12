@@ -157,6 +157,10 @@ public class UnoModel
         if (numberRounds>0){
             this.numberOfRounds = numberRounds;
             player = new Player(4, nameOfPlayer); //player number temporary
+            this.deck = new Deck();
+            for (int x = 1; x<=7;x++){
+                this.player.addCard(this.deck.drawCard(), "TBA");
+            }
         }
         else{
             this.numberOfRounds = -1;

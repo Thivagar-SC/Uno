@@ -16,6 +16,7 @@ public class Deck
     {
         super();
         deck = new ArrayList<>();
+        this.fillDeck();
     }
 
     /**
@@ -39,21 +40,22 @@ public class Deck
     public void fillDeck()
     {
         deck.clear();
-        for (int color = 0; color < 4; color++)
+        for (int color = 0; color < 3; color++)
         {
             deck.add(new Card(0, color));
 
-            for (int faceValue = 1; faceValue <= 13; faceValue++)
+            for (int faceValue = 1; faceValue <= 12; faceValue++)
             {
                 deck.add(new Card(faceValue, color));
                 deck.add(new Card(faceValue, color));
             }
+        }
         for (int i = 0; i < 4; i++)
         {
-            deck.add(new Card(13, i));
-            deck.add(new Card(14, i));
+            deck.add(new Card(13, 4));
+            deck.add(new Card(14, 4));
         }
-        }
+        
         Collections.shuffle(deck);
     }
 

@@ -16,6 +16,7 @@ public class Player {
         this.wonRound = false;
         this.totalScore = 0;
         this.selectable = false;
+        this.cards = new ArrayList<Card>();
 
     }
 
