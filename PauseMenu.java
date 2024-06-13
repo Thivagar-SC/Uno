@@ -17,9 +17,7 @@ public class PauseMenu extends JPanel {
 
     public JButton resumeButton; // Interactable buttons
     public JButton quitToMainMenuButton;
-    public JButton quitGameButon;
-    private JPanel pauseMenuBackground; // Background for pause menu
-    private JPanel buttons;
+    public JButton quitGameButton;
 
     /**
      * pauseMenu
@@ -31,18 +29,41 @@ public class PauseMenu extends JPanel {
         super();
         isPaused = false;
         this.setVisible(this.isPaused);
-        this.setPreferredSize(new Dimension(1000, 1000));
-//        this.setLayout(new GridLayout(3, 1));
+        this.setLayout(new FlowLayout());
+
 
         // setting text
         resumeButton = new JButton("Resume");
+        resumeButton.setFont(new Font("Arial", Font.BOLD, 20));
+        resumeButton.setMaximumSize(new Dimension(250,50));
         quitToMainMenuButton = new JButton("Return to Main Menu");
-        quitGameButon = new JButton("Quit Game");
+        quitToMainMenuButton.setFont(new Font("Arial", Font.BOLD, 20));
+        quitToMainMenuButton.setMaximumSize(new Dimension(250,50));
+        quitGameButton = new JButton("Quit Game");
+        quitGameButton.setFont(new Font("Arial", Font.BOLD, 20));
+        quitGameButton.setMaximumSize(new Dimension(250,50));
+
+        resumeButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        quitToMainMenuButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        quitGameButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        // Background for pause menu
+        JPanel buttonsBackground = new JPanel();
+        buttonsBackground.setPreferredSize(new Dimension(300,180));
+        this.add(buttonsBackground);
+        buttonsBackground.setLayout(new BoxLayout(buttonsBackground, BoxLayout.Y_AXIS));
 
         // OUTPUT
-        this.add(resumeButton);
-        this.add(quitToMainMenuButton);
-        this.add(quitGameButon);
+        buttonsBackground.add(Box.createVerticalStrut(40));
+        buttonsBackground.add(resumeButton);
+        buttonsBackground.add(Box.createVerticalStrut(10));
+        buttonsBackground.add(quitToMainMenuButton);
+        buttonsBackground.add(Box.createVerticalStrut(10));
+        buttonsBackground.add(quitGameButton);
+        buttonsBackground.add(Box.createVerticalStrut(20));
+
+        buttonsBackground.setAlignmentX(CENTER_ALIGNMENT);
+
     }
 
     public void setVisibility(){

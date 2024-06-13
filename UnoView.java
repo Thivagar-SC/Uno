@@ -200,7 +200,7 @@ public class UnoView extends JPanel {
       this.removeKeyListener(listener);
     }
     this.addKeyListener(pauseGame);
-    this.pauseMenu.quitGameButon.addActionListener(pauseGame);
+    this.pauseMenu.quitGameButton.addActionListener(pauseGame);
     this.pauseMenu.quitToMainMenuButton.addActionListener(pauseGame);
     this.pauseMenu.resumeButton.addActionListener(pauseGame);
 
