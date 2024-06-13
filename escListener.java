@@ -15,7 +15,7 @@ public class escListener implements KeyListener, ActionListener
     {
         if (e.getActionCommand().equals("Resume"))
         {
-      //      pauseMenu.setVisible(false);
+            this.model.pauseGame();
         } else if (e.getActionCommand().equals("Return to Main Menu"))// something
         {
             view.mainMenu();
@@ -24,6 +24,7 @@ public class escListener implements KeyListener, ActionListener
             model.quitGame();
         }
     }
+
 
     /**
      * keyPressed

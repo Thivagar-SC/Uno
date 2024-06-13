@@ -28,8 +28,8 @@ public class PauseMenu extends JPanel {
      */
     public PauseMenu() {
         super();
-        isPaused = true;
-        //this.setVisible(false);
+        isPaused = false;
+        this.setVisible(this.isPaused);
         this.setPreferredSize(new Dimension(100, 100));
         this.setLayout(new GridLayout(3, 1));
 
@@ -43,6 +43,12 @@ public class PauseMenu extends JPanel {
         this.add(quitToMainMenuButton);
         this.add(quitGameButon);
     }
+
+    public void setVisibility(){
+        this.isPaused = !this.isPaused;
+        this.setVisible(this.isPaused);
+    }
+
 
     public void update() {
     }

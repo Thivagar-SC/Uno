@@ -120,7 +120,7 @@ public class UnoModel {
 
     public void pauseGame()
     {
-        view.setPauseState(true);
+        view.setPauseState();
     }
 
     /**

@@ -197,6 +197,7 @@ public class UnoView extends JPanel {
       this.removeKeyListener(listener);
     }
     this.addKeyListener(pauseGame);
+    //this.menu.addKeyListener(pauseGame);
   }
 
   /**getCards
@@ -250,11 +251,14 @@ public class UnoView extends JPanel {
     this.refresh();
   }
 
-  public void setPauseState(boolean a){
-    System.out.println("display pause menu");
+  public void setPauseState(){
     this.pauseMenu.setBounds(300,50,200,400);
     this.pauseMenu.setBackground(Color.BLACK);
     this.add(pauseMenu);
+    this.pauseMenu.setVisibility();
+    
+    this.deck.setVisible(!this.deck.isVisible());
+
     this.refresh();
   }
 
