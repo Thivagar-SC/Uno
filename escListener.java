@@ -4,7 +4,7 @@ public class escListener implements KeyListener, ActionListener
 {
     private UnoView view;
     private UnoModel model;
-    private PauseMenu pauseMenu;
+    //private PauseMenu pauseMenu;
 
     public escListener(UnoModel model)
     {
@@ -15,7 +15,7 @@ public class escListener implements KeyListener, ActionListener
     {
         if (e.getActionCommand().equals("Resume"))
         {
-            pauseMenu.setVisible(false);
+      //      pauseMenu.setVisible(false);
         } else if (e.getActionCommand().equals("Return to Main Menu"))// something
         {
             view.mainMenu();

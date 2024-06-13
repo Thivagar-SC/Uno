@@ -8,7 +8,7 @@ import java.io.*;
  */
 public class UnoModel {
     private UnoView view;
-    private PauseMenu pauseMenu;
+    //private PauseMenu pauseMenu;
     private Card currentlyPlacedCard;
     private String gameState;
     private int turn;
@@ -120,7 +120,7 @@ public class UnoModel {
 
     public void pauseGame()
     {
-        view.setPauseState(true);
+   //     view.setPauseState(true);
     }
 
     /**

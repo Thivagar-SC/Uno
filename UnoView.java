@@ -38,8 +38,8 @@ public class UnoView extends JPanel {
     super();
     this.model = uModel;
     this.mainMenu();
-    pauseMenu = new PauseMenu(model);
-    pauseMenu.setVisible(false);
+   // pauseMenu = new PauseMenu(model);
+   // pauseMenu.setVisible(false);
     this.registerControllers();
     this.model.setGUI(this);
     this.deck = new RoundedJPane(50, 4);
