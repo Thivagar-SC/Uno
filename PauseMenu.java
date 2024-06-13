@@ -15,9 +15,9 @@ public class PauseMenu extends JPanel {
     private String pausedMessage = "PAUSED"; // Message displayed to user
     private boolean isPaused; // if game is paused
 
-    private JButton resumeButton; // Interactable buttons
-    private JButton quitToMainMenuButton;
-    private JButton quitGameButon;
+    public JButton resumeButton; // Interactable buttons
+    public JButton quitToMainMenuButton;
+    public JButton quitGameButon;
     private JPanel buttons;
 
     /**
@@ -51,6 +51,10 @@ public class PauseMenu extends JPanel {
 
 
     public void update() {
+    }
+
+    public boolean isPaused(){
+        return this.isPaused;
     }
 
 }
