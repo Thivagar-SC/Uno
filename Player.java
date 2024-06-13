@@ -32,14 +32,6 @@ public class Player {
         cards.remove(cardIndex);
     }
 
-    public void setSelectable() {
-        this.selectable = !this.selectable;
-    }
-
-    public boolean setGetSelectable() {
-        return setGetSelectable();
-    }
-
     public ArrayList<Card> getHand() {
         return cards;
     }

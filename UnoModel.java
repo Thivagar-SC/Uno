@@ -101,14 +101,16 @@ public class UnoModel {
      * 
      * @param isPaused true if the game is paused, false otherwise.
      */
-    public void setPauseState(boolean isPaused) {
+    public void setPauseState(boolean isPaused)
+    {
 
     }
 
     /**
      * Quits the game.
      */
-    public void quitGame() {
+    public void quitGame()
+    {
         System.exit(0);
     }
 
@@ -118,7 +120,9 @@ public class UnoModel {
      * @param keyCode - the key code of the pressed key.
      */
     public void inputForESC(int keyCode) {
-        if (keyCode == KeyEvent.VK_ESCAPE) {
+        if (keyCode == KeyEvent.VK_ESCAPE)
+        {
+            System.out.println("Esc is pressed");
             setPauseState(true);
         }
 

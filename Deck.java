@@ -9,19 +9,13 @@ public class Deck
 {
     //Variable declarations
     private List<Card> deck;        //List of cards in the deck
-
-    private final int numberCards = 80;  //76 cards including number 0 to 9
-    private final int plusTwoCards = 8;  //2 each of +2 cards
-    private final int reverseCards = 8;  //2 each of reverse cards
-    private final int blockCards = 8;     //2 each of block cards
-    private final int wildCards = 4;     //2 wild cards
-    private final int plusFourCards = 4; //4 +4 cards
-
-    private final int colorRed = 0;
-    private final int colorBlue = 1;
-    private final int colorYellow = 2;
-    private final int colorGreen = 3;
-    private final int colorBlack = 4;
+    private final int numberCards = 80;  //80 number cards including number 0 to 9
+    private int topOfDeck;
+    private final int colourRed = 0;  //ID for co
+    private final int colourBlue = 1;
+    private final int colourYellow = 2;
+    private final int colourGreen = 3;
+    private final int COLOR_BLACK = 4;
 
     private boolean selectable = true;     //Sets selectable to not equal itself
 
@@ -31,6 +25,7 @@ public class Deck
         super();
         deck = new ArrayList<>();
         this.fillDeck();
+        topOfDeck = deck.size() - 1;
     }
 
     /**
@@ -50,7 +45,7 @@ public class Deck
         return drawnCard;
     }
 
-    /** Refills deck with cards if all cards are drawn or a new game started */
+    /** Refills and shuffles deck if all cards are drawn or a new game started */
     public void fillDeck()
     {
         deck.clear();
@@ -78,7 +73,7 @@ public class Deck
     {
         for (int i = 0; i < 4; i++)
         {
-            deck.add(new Card(13, colorBlack));
+            deck.add(new Card(13, COLOR_BLACK));
         }
     }
 
@@ -86,7 +81,7 @@ public class Deck
     {
         for (int i = 0; i < 4; i++)
         {
-            deck.add(new Card(14, colorBlack));
+            deck.add(new Card(14, COLOR_BLACK));
         }
     }
 
@@ -117,9 +112,9 @@ public class Deck
         }
     }
 
-    /** Method to add 76 number cards from 4 different colours to the deck */
+    /** Method to add 80 number cards from 4 different colours to the deck */
     public void addNumberCards() {
-        for (int cardFaceValue = 0; cardFaceValue < numberCards/8; cardFaceValue++)
+        for (int cardFaceValue = 0; cardFaceValue < numberCards / 8; cardFaceValue++)
         {
             for (int colour = 0; colour < 4; colour++)
             {
@@ -129,11 +124,13 @@ public class Deck
         }
     }
 
-    /** Sets whether the deck is selectable.
-     *  @param selectable
-     */
+    public boolean getSelectable()
+    {
+        return selectable;
+    }
+
     public void setSelectable(boolean selectable)
     {
-
+        this.selectable = selectable;
     }
 }
