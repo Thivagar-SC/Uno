@@ -1,27 +1,19 @@
-import java.awt.*;
 import java.awt.event.*;
 
-/**
- * escListener
- * detects if user hits esc (pause game)
- * 
- * @author tba
- * @since 2024/06/12
- */
-public class escListener implements KeyListener, ActionListener {
-    private UnoView view; // view of game
-    private UnoModel model; // model of game
-    private pauseMenu pauseMenu; // pause menu component
+public class escListener implements KeyListener, ActionListener
+{
+    private UnoView view;
+    private UnoModel model;
+    private PauseMenu pauseMenu;
 
-    /**
-     * actionPerformed
-     * detects user inputs anything
-     * 
-     * @author tba
-     * @param e - event user preformed
-     */
-    public void actionPerformed(ActionEvent e) {
-        if (e.getActionCommand().equals("Resume")) // not sure when this well ever be equal so idk u comment
+    public escListener(UnoModel model)
+    {
+        this.model = model;
+    }
+
+    public void actionPerformed (ActionEvent e)
+    {
+        if (e.getActionCommand().equals("Resume"))
         {
             pauseMenu.setVisible(false);
         } else if (e.getActionCommand().equals("Return to Main Menu"))// something
@@ -41,8 +33,8 @@ public class escListener implements KeyListener, ActionListener {
      * @param e - TBA
      */
     @Override
-    public void keyPressed(KeyEvent e) {
-        System.out.println("keyPressed");
+    public void keyPressed(KeyEvent e)
+    {
         model.inputForESC(e.getKeyCode());
     }
 

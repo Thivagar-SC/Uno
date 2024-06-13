@@ -14,6 +14,7 @@ public class UnoView extends JPanel {
   private UnoModel model; //model of game
   private ArrayList<RoundedJPane> cards = new ArrayList<RoundedJPane>();  //display of users cards
 
+  public boolean isPaused;
   //components for gui
   private JPanel menu = new JPanel();
   private JPanel gameSelect = new JPanel();
@@ -37,6 +38,8 @@ public class UnoView extends JPanel {
     super();
     this.model = uModel;
     this.mainMenu();
+    pauseMenu = new PauseMenu(model);
+    pauseMenu.setVisible(false);
     this.registerControllers();
     this.model.setGUI(this);
     this.deck = new RoundedJPane(50, 4);
@@ -166,6 +169,7 @@ public class UnoView extends JPanel {
     CardSelector setup = new CardSelector(this.model); // Setup
     MenuListener mSelect = new MenuListener(this.model);
     deckListener addCard = new deckListener(this.model);
+    escListener pauseGame = new escListener(this.model);
 
     // set listeners
 
