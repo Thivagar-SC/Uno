@@ -4,7 +4,7 @@ import java.util.ArrayList;
  * UnoAi
  * object represent ai player vs in game
  * 
- * @author Tba
+ * @author Avaneesh
  * @since 2024/06/12
  */
 public class UnoAi {
@@ -15,11 +15,13 @@ public class UnoAi {
 
     // I aint commenting this yet
     public UnoAi(int playerNumber) {
-        
+        this.playerNumber = playerNumber;
+        this.wonRound = false;
+        this.cards = new ArrayList<Card>();
     }
 
     public void placeCard(int cardIndex) {
-
+        
     }
 
     public void hitUNO() {

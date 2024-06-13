@@ -90,7 +90,8 @@ public class UnoModel {
     private void plusTwoCard() //Avaneesh
     {
         int totalStack = 2;
-        int nextPlayer = (turn * direction + players.size())%players.size();
+        int nextPlayer = (turn + direction);
+
         
     }
 
@@ -102,7 +103,7 @@ public class UnoModel {
     public Player getCurrentPlayer() {
         return player;
     }
-
+    
     /**
      * Quits the game.
      */
