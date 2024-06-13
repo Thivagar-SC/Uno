@@ -11,7 +11,6 @@ public class UnoStartUp
         JFrame test = new JFrame();
         test.setSize(new Dimension(1000, 1000));
         test.setResizable(false);
-        test.addKeyListener(new escListener());
         test.setContentPane(a);
         test.setVisible(true);
 

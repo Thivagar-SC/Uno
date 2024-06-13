@@ -1,23 +1,21 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
-import java.util.*;
 
-public class pauseMenu extends JPanel
+public class PauseMenu extends JPanel
 {
     UnoModel model;
     UnoView view;
     private String pausedMessage = "PAUSED";
-    private boolean isPaused;
+
     private JButton resumeButton;
     private JButton quitToMainMenuButton;
     private JButton quitGameButon;
     private JPanel buttons;
 
-    public pauseMenu()
+    public PauseMenu(UnoModel model)
     {
         super();
-        isPaused = true;
+        this.model = model;
         this.setVisible(false);
         this.setPreferredSize(new Dimension(100,100));
         this.setLayout(new GridLayout(3,1));

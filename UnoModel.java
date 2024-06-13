@@ -8,6 +8,7 @@ import java.io.*;
  */
 public class UnoModel {
     private UnoView view;
+    private PauseMenu pauseMenu;
     private Card currentlyPlacedCard;
     private String gameState;
     private int turn;
@@ -97,16 +98,6 @@ public class UnoModel {
     }
 
     /**
-     * Sets the pause state of the game.
-     * 
-     * @param isPaused true if the game is paused, false otherwise.
-     */
-    public void setPauseState(boolean isPaused)
-    {
-
-    }
-
-    /**
      * Quits the game.
      */
     public void quitGame()
@@ -123,9 +114,13 @@ public class UnoModel {
         if (keyCode == KeyEvent.VK_ESCAPE)
         {
             System.out.println("Esc is pressed");
-            setPauseState(true);
+            pauseGame();
         }
+    }
 
+    public void pauseGame()
+    {
+        view.setPauseState(true);
     }
 
     /**
