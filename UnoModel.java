@@ -175,7 +175,7 @@ public class UnoModel {
         numberRounds = this.view.getRounds();
         if (numberRounds > 0) {
             this.numberOfRounds = numberRounds;
-            player = new Player(4, nameOfPlayer); // player number temporary
+            player = new Player(0, nameOfPlayer); // player number temporary
             this.deck = new Deck();
             for (int x = 1; x <= 7; x++) {
                 this.player.addCard(this.deck.drawCard(), "TBA");
@@ -184,7 +184,18 @@ public class UnoModel {
             this.numberOfRounds = -1;
         }
 
+        this.placeStarterCard();
         this.view.update();
+    }
+
+    public void placeStarterCard(){
+        Card cuCard = this.deck.drawCard();
+        while (cuCard.getValue()>9) //while card is invalid to start with
+        {
+            this.deck.addCard(cuCard);
+            cuCard = this.deck.drawCard();
+        }
+        this.currentlyPlacedCard = cuCard;
     }
 
     public void raiseCard(Object card) {
@@ -244,5 +255,9 @@ public class UnoModel {
     public void drawCard() {
         this.player.addCard(this.deck.drawCard(), "TBA");
         this.view.update();
+    }
+
+    public Card getCurrentCard(){
+        return this.currentlyPlacedCard;
     }
 }
