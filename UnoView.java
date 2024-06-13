@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseListener; //recode later if time so this is unneeded
 import java.util.*;
@@ -209,11 +210,16 @@ public class UnoView extends JPanel {
     for (KeyListener listener:this.getKeyListeners()){
       this.removeKeyListener(listener);
     }
+    for (ActionListener listener: this.pauseMenu.resumeButton.getActionListeners()){
+      this.pauseMenu.quitToMainMenuButton.removeActionListener(listener);
+      this.pauseMenu.quitGameButton.removeActionListener(listener);
+      this.pauseMenu.resumeButton.removeActionListener(listener);
+
+    }
     this.addKeyListener(pauseGame);
     this.pauseMenu.quitGameButton.addActionListener(pauseGame);
     this.pauseMenu.quitToMainMenuButton.addActionListener(pauseGame);
     this.pauseMenu.resumeButton.addActionListener(pauseGame);
-
   }
 
   /**getCards

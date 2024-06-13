@@ -17,7 +17,7 @@ public class escListener implements KeyListener, ActionListener
         System.out.println("RUNNING");
         if (e.getActionCommand().equals("Resume"))
         {
-            
+            model.pauseGame();
         }
         else if (e.getActionCommand().equals("Return to Main Menu"))// something
         {
