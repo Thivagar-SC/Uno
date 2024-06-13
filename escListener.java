@@ -21,7 +21,7 @@ public class escListener implements KeyListener, ActionListener
         }
         else if (e.getActionCommand().equals("Return to Main Menu"))// something
         {
-            view.mainMenu();
+            model.reset();
         }
         else if (e.getActionCommand().equals("Quit Game")) // something else
         {

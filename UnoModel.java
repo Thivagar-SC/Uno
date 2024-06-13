@@ -27,12 +27,35 @@ public class UnoModel {
     private int direction = 1;
     // GUI variables
     private boolean menuSelection;
+    private int state; //state of game
+
+    private final int MENU = 0;
+    private final int SELECTION= 1;
+    private final int GAME = 2;
+    private final int PAUSED = 3;
+    private final int ENDGAME = 4;
+    private final int RESET = 5;
+
+
 
     /**
      * Constructor for UnoModel.
      */
     public UnoModel() {
         super();
+    }
+
+    public void mainMenu(){
+        this.state = this.MENU;
+        this.numberOfRounds = -1;
+        this.menuSelection = true;
+        this.view.update();
+    }
+
+    public void reset(){
+        this.state = this.RESET;
+        this.view.update();
+        this.mainMenu();
     }
 
     /**
@@ -45,6 +68,10 @@ public class UnoModel {
         turn = (turn + skip * direction);
     }
 
+
+    public int getState(){
+        return this.state;
+    }
     /**
      * Checks if the current round is over.
      */
@@ -127,7 +154,8 @@ public class UnoModel {
 
     public void pauseGame()
     {
-        view.setPauseState();
+        this.state = this.PAUSED;
+        view.update();
     }
 
     /**
@@ -171,6 +199,7 @@ public class UnoModel {
     public void startGame() {
         int numberRounds;
         String nameOfPlayer;
+        this.state = 2;
         this.menuSelection = false;
         nameOfPlayer = this.view.getPlayerName();
         numberRounds = this.view.getRounds();
@@ -200,11 +229,11 @@ public class UnoModel {
     }
 
     public void raiseCard(Object card) {
-        this.view.raiseCard(card);
+        this.view.updateCard(true,card);
     }
 
     public void dropCard(Object card) {
-        this.view.dropCard(card);
+        this.view.updateCard(false,card);
     }
 
     // ta=ba
@@ -216,6 +245,7 @@ public class UnoModel {
      * Starts game startup
      */
     public void startSelection() {
+        this.state = 1;
         this.menuSelection = true;
         this.view.update();
     }
@@ -252,6 +282,7 @@ public class UnoModel {
     public void setGUI(UnoView gui) {
         this.view = gui;
     }
+
 
     public void drawCard() {
         this.player.addCard(this.deck.drawCard(), "TBA");
