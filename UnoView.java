@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseListener; //recode later if time so this is unneeded
 import java.util.*;
 
@@ -26,6 +27,7 @@ public class UnoView extends JPanel {
   private JButton playGame = new JButton();
   private RoundedJPane deck;
   private RoundedJPane currentCard;
+  private PauseMenu pauseMenu;
 
   /**
      * UnoView
@@ -38,8 +40,7 @@ public class UnoView extends JPanel {
     super();
     this.model = uModel;
     this.mainMenu();
-   // pauseMenu = new PauseMenu(model);
-   // pauseMenu.setVisible(false);
+    this.pauseMenu = new PauseMenu();
     this.registerControllers();
     this.model.setGUI(this);
     this.deck = new RoundedJPane(50, 4);
@@ -142,6 +143,8 @@ public class UnoView extends JPanel {
    * @author Thivagar
    */
   public void displayCards() { 
+    this.setFocusable(true);
+    this.requestFocus();
     this.setHand();
     this.removeAll();
     this.setLayout(null);
@@ -189,6 +192,11 @@ public class UnoView extends JPanel {
 
     this.startGame.addActionListener(mSelect);//tba
     this.playGame.addActionListener(mSelect);
+
+    for (KeyListener listener:this.getKeyListeners()){
+      this.removeKeyListener(listener);
+    }
+    this.addKeyListener(pauseGame);
   }
 
   /**getCards
@@ -239,6 +247,14 @@ public class UnoView extends JPanel {
     } else if (this.model.getNumberOfRound() < 0) {
       this.roundInput.setText("Input a valid number");
     }
+    this.refresh();
+  }
+
+  public void setPauseState(boolean a){
+    System.out.println("display pause menu");
+    this.pauseMenu.setBounds(300,50,200,400);
+    this.pauseMenu.setBackground(Color.BLACK);
+    this.add(pauseMenu);
     this.refresh();
   }
 

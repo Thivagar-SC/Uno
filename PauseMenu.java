@@ -10,9 +10,8 @@ import java.util.*;
  * @author tba
  * @since 2024/06/12
  */
-public class pauseMenu extends JPanel {
-    UnoModel model; // model of game (not needed?)
-    UnoView view; // view of game (also not needed?)
+public class PauseMenu extends JPanel {
+
     private String pausedMessage = "PAUSED"; // Message displayed to user
     private boolean isPaused; // if game is paused
 
@@ -27,10 +26,10 @@ public class pauseMenu extends JPanel {
      * 
      * @author tba
      */
-    public pauseMenu() {
+    public PauseMenu() {
         super();
         isPaused = true;
-        this.setVisible(false);
+        //this.setVisible(false);
         this.setPreferredSize(new Dimension(100, 100));
         this.setLayout(new GridLayout(3, 1));
 

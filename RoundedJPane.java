@@ -34,6 +34,7 @@ public class RoundedJPane extends JLayeredPane {
         this.radius = radius;
         this.currentColour = colour;
         this.setPreferredSize(new Dimension(w, h));
+        
     }
 
     /**

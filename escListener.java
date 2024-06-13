@@ -4,7 +4,7 @@ public class escListener implements KeyListener, ActionListener
 {
     private UnoView view;
     private UnoModel model;
-    //private PauseMenu pauseMenu;
+    private PauseMenu pauseMenu;
 
     public escListener(UnoModel model)
     {
