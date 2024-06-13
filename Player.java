@@ -5,7 +5,7 @@ import java.util.*;
  * Player
  * Player object storing info on the user
  * 
- * @author Tba
+ * @author Avaneesh
  * @since 2024/06/12
  */
 public class Player {
@@ -96,7 +96,7 @@ public class Player {
      * getPlayerName
      * returns users name
      * 
-     * @author tba
+     * @author Avaneesh
      * @return playerName
      */
     public String getPlayerName() {
@@ -107,7 +107,7 @@ public class Player {
      * setWon
      * sets if player won the game
      * 
-     * @author tba
+     * @author AVaneesh
      */
     public void setWon() {
         this.wonRound = true;
@@ -117,7 +117,7 @@ public class Player {
      * getTotalScore
      * returns players score
      * 
-     * @author tba
+     * @author Avaneesh
      * @return totalScore
      */
     public int getTotalScore() {
@@ -128,7 +128,7 @@ public class Player {
      * GetPlayerID
      * returns players id
      * 
-     * @author tba
+     * @author Avaneesh
      * @return playerNumber
      */
     public int GetPlayerID() {
@@ -139,7 +139,7 @@ public class Player {
      * organizeHand
      * sorts cards in players hand
      * 
-     * @author tba
+     * @author Avaneesh
      */
     public void organizeHand() {
         sortByColour();
@@ -150,7 +150,7 @@ public class Player {
      * sortByColour
      * sorts cards in players hand by colour
      * 
-     * @author tba
+     * @author Avaneesh
      */
     private void sortByColour() {
         int minIndex;
@@ -173,7 +173,7 @@ public class Player {
      * sortByNumbWithColour
      * sorts cards in players hand by number saving colour order as priority
      * 
-     * @author tba
+     * @author Avaneesh
      */
     private void sortByNumbWithColour() {
         int minIndex;

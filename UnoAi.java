@@ -15,7 +15,7 @@ public class UnoAi {
 
     // I aint commenting this yet
     public UnoAi(int playerNumber) {
-
+        
     }
 
     public void placeCard(int cardIndex) {

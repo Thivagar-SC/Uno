@@ -75,7 +75,7 @@ public class UnoModel {
                 direction *= -1;
                 nextTurn(1);
             } else if (cardToPlace.getValue() == 11) {
-                // will do tonight brain not proceesing rn
+                plusTwoCard();
             } else if (cardToPlace.getValue() == 12) {
                 nextTurn(2);
 
@@ -86,6 +86,12 @@ public class UnoModel {
         if (cardToPlace.getValue() == 14) {
         }
 
+    }
+    private void plusTwoCard() //Avaneesh
+    {
+        int totalStack = 2;
+        int nextPlayer = (turn * direction + players.size())%players.size();
+        
     }
 
     /**
