@@ -262,7 +262,7 @@ public class UnoView extends JPanel {
   }
 
   public void setPauseState(){
-    this.pauseMenu.setBounds(300,50,200,400);
+    this.pauseMenu.setBounds(0,0,1000,1000);
   //  this.pauseMenu.setBackground(Color.BLACK);
     this.add(pauseMenu);
     this.pauseMenu.setVisibility();

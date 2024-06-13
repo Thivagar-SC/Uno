@@ -18,6 +18,7 @@ public class PauseMenu extends JPanel {
     public JButton resumeButton; // Interactable buttons
     public JButton quitToMainMenuButton;
     public JButton quitGameButon;
+    private JPanel pauseMenuBackground; // Background for pause menu
     private JPanel buttons;
 
     /**
@@ -30,8 +31,8 @@ public class PauseMenu extends JPanel {
         super();
         isPaused = false;
         this.setVisible(this.isPaused);
-        this.setPreferredSize(new Dimension(100, 100));
-        this.setLayout(new GridLayout(3, 1));
+        this.setPreferredSize(new Dimension(1000, 1000));
+//        this.setLayout(new GridLayout(3, 1));
 
         // setting text
         resumeButton = new JButton("Resume");
@@ -57,4 +58,10 @@ public class PauseMenu extends JPanel {
         return this.isPaused;
     }
 
+    @Override
+    public void paintComponent(Graphics g)
+    {
+        g.setColor(new Color(144, 143, 143, 204));
+        g.fillRect(0, 0, 1000, 1000);
+    }
 }
