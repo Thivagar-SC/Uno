@@ -26,7 +26,6 @@ public class Player {
         this.cards.add(card);
         this.source = source;
     }
-        
 
     public void placeCard(int cardIndex) {
         cards.remove(cardIndex);
@@ -34,6 +33,14 @@ public class Player {
 
     public ArrayList<Card> getHand() {
         return cards;
+    }
+
+    public void setSelectable() {
+        this.selectable = !this.selectable;
+    }
+
+    public boolean setGetSelectable() {
+        return setGetSelectable();
     }
 
     public String getPlayerName() {
