@@ -31,8 +31,37 @@ public class UnoModel {
     /**
      * Constructor for UnoModel.
      */
-    public UnoModel() {
+    public UnoModel()
+    {
         super();
+        try
+        {
+            File saveFile;
+            int fileNumber = 1; // Start with the first file number
+            while (true)
+            {
+                saveFile = new File("SaveFiles/Save File #" + fileNumber + ".txt");
+                if (!saveFile.exists())
+                {
+                    break;
+                }
+                fileNumber++; // Increment the file number if the file already exists
+            }
+
+            if (saveFile.createNewFile())
+            {
+                System.out.println("File created: " + saveFile.getName());
+            }
+            else
+            {
+                System.out.println("File already exists.");
+            }
+        }
+        catch (IOException e)
+        {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
     }
 
     /**

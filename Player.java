@@ -54,7 +54,7 @@ public class Player {
      * places a card out of the users hand
      * 
      * @author tba
-     * @param card - location of users card in hand
+     * @param cardIndex - location of users card in hand
      */
     public void placeCard(int cardIndex) {
         cards.remove(cardIndex);
