@@ -53,6 +53,7 @@ public class CardSelector implements MouseListener {
      */
     public void mouseClicked(MouseEvent e) {
         System.out.println("Mouse Clicked");
+        this.model.placeCard(0, 0);
     }
 
     /**

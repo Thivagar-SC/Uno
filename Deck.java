@@ -74,6 +74,12 @@ public class Deck {
         deck.remove(0);
     }
 
+    public void addCard(Card card) //adds a card back into the deck
+    {
+        this.deck.add(0, card);
+        Collections.shuffle(deck);
+    }
+
     /**
      * addSpecialCards
      * adds all non number cards to deck

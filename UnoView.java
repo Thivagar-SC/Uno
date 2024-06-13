@@ -138,8 +138,16 @@ public class UnoView extends JPanel {
    * @author Thivagar
    */
   public void displayCurrentCard(){
-      //this.currentCard = this.model.get
-  }
+        
+      this.currentCard = new RoundedJPane(50, this.model.getCurrentCard().getColour()); 
+      ImgComponent a = new ImgComponent((this.model.getCurrentCard().getValue()+".png").trim());
+      a.setBounds(0, 0, 211, 336);
+      this.currentCard.add(a);
+      this.currentCard.setBounds(500,100,211,336);
+      this.add(this.currentCard);
+      this.refresh();
+    }
+  
 
   /**displayCards
    * displays cards of user
@@ -153,6 +161,8 @@ public class UnoView extends JPanel {
     this.setLayout(null);
 
     ImgComponent img;
+    this.displayCurrentCard();
+
     for (int x = 0; x < this.model.getCurrentPlayer().getHand().size(); x++) {  //for each card
       Card currentCard = this.model.getCurrentPlayer().getHand().get(x);
       this.cards.get(x).setBounds(((this.getWidth()-200)/(this.model.getCurrentPlayer().getHand().size()+1)*x)+20, 500, 211, 336);
@@ -267,6 +277,7 @@ public class UnoView extends JPanel {
     this.add(pauseMenu);
     this.pauseMenu.setVisibility();
     
+    this.currentCard.setVisible(!this.currentCard.isVisible());
     this.deck.setVisible(!this.deck.isVisible());
     for (int x = 0; x<this.cards.size();x++){
       this.cards.get(x).setVisible(!this.cards.get(x).isVisible());

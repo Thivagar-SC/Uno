@@ -3,7 +3,7 @@
  * Card
  * Creates a playing card that has a value and colour
  * 
- * @author tba
+ * @author Avaneesh
  * @since 2024/06/12
  */
 public class Card {
@@ -14,7 +14,7 @@ public class Card {
      * Card
      * Card Constructor
      * 
-     * @author tba
+     * @author Avaneesh
      * @param cardFaceValue - set value of card
      * @param colour        - colour card will be
      */
@@ -29,7 +29,7 @@ public class Card {
      * returns value of card
      * 
      * @return cardFaceValue
-     * @author tba
+     * @author Avaneesh
      */
     public int getValue() {
         return cardFaceValue;
@@ -39,7 +39,7 @@ public class Card {
      * getColour
      * returns the colour of a card
      * 
-     * @author tba
+     * @author Avaneesh
      * @return colour
      */
     public int getColour() {
@@ -50,7 +50,7 @@ public class Card {
      * changeColour
      * changes the colour of a card
      * 
-     * @author tba
+     * @author Avaneesh
      * @param newColour - colour card will change to
      */
     public void changeColour(int newColour) {
