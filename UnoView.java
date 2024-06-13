@@ -253,7 +253,7 @@ public class UnoView extends JPanel {
   private void raiseCard(Object aCard) {
     for (int x = 0; x < this.cards.size(); x++) {
       if (this.cards.get(x).equals(aCard)) {
-        this.cards.get(x).setBounds(this.cards.get(x).getX(), 440, 211, 336);
+        this.cards.get(x).setBounds(this.cards.get(x).getX(), 420, 211, 336);
       }
     }
     this.refresh();
