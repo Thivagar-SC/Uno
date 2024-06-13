@@ -6,13 +6,15 @@ public class escListener implements KeyListener, ActionListener
     private UnoModel model;
     private PauseMenu pauseMenu;
 
-    public escListener(UnoModel model)
+    public escListener(UnoModel model,UnoView view)
     {
         this.model = model;
+        this.view = view;
     }
 
     public void actionPerformed (ActionEvent e)
     {
+        System.out.println("RUNNING");
         if (e.getActionCommand().equals("Resume"))
         {
             this.model.pauseGame();

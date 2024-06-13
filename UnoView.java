@@ -73,6 +73,8 @@ public class UnoView extends JPanel {
    */
   public void mainMenu() { // gui temporary for use
     this.setLayout(new BorderLayout());
+    
+    this.cards.clear();
     this.removeAll();
     this.startGame.setText("Start");
     this.startGame.setPreferredSize(new Dimension(200, 100));
@@ -80,6 +82,7 @@ public class UnoView extends JPanel {
     this.setBackground(Color.LIGHT_GRAY);
     this.menu.add(this.startGame);
     this.add(this.menu, BorderLayout.WEST);
+    this.refresh();
   }
 
   /**gameSetup
@@ -172,7 +175,7 @@ public class UnoView extends JPanel {
     CardSelector setup = new CardSelector(this.model); // Setup
     MenuListener mSelect = new MenuListener(this.model);
     deckListener addCard = new deckListener(this.model);
-    escListener pauseGame = new escListener(this.model);
+    escListener pauseGame = new escListener(this.model,this);
 
     // set listeners
 
@@ -197,7 +200,10 @@ public class UnoView extends JPanel {
       this.removeKeyListener(listener);
     }
     this.addKeyListener(pauseGame);
-    //this.menu.addKeyListener(pauseGame);
+    this.pauseMenu.quitGameButon.addActionListener(pauseGame);
+    this.pauseMenu.quitToMainMenuButton.addActionListener(pauseGame);
+    this.pauseMenu.resumeButton.addActionListener(pauseGame);
+
   }
 
   /**getCards
@@ -239,6 +245,9 @@ public class UnoView extends JPanel {
    * @author Thivagar
    */
   public void update() {
+    if (this.pauseMenu.isPaused()){
+      this.setEnabled(false);
+    }
     if (this.model.getMenuSelect()) {
       this.removeAll();
       this.gameSetup();
@@ -248,16 +257,20 @@ public class UnoView extends JPanel {
     } else if (this.model.getNumberOfRound() < 0) {
       this.roundInput.setText("Input a valid number");
     }
+    
     this.refresh();
   }
 
   public void setPauseState(){
-    this.pauseMenu.setBounds(300,50,200,400);
-    this.pauseMenu.setBackground(Color.BLACK);
+    this.pauseMenu.setBounds(0,0,1000,1000);
+  //  this.pauseMenu.setBackground(Color.BLACK);
     this.add(pauseMenu);
     this.pauseMenu.setVisibility();
     
     this.deck.setVisible(!this.deck.isVisible());
+    for (int x = 0; x<this.cards.size();x++){
+      this.cards.get(x).setVisible(!this.cards.get(x).isVisible());
+    }
 
     this.refresh();
   }
