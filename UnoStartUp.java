@@ -2,8 +2,22 @@ import java.awt.Dimension;
 
 import javax.swing.*;
 import java.awt.event.*;
+
+/**
+ * UnoStartUp
+ * Uno program runner
+ * 
+ * @author tba 
+ * @since 2024/06/12
+ */
 public class UnoStartUp
 {
+    /**
+ * mains
+ * runs uno game
+ * 
+ * @author tba 
+ */
     public static void main(String[] args)
     {
         UnoModel b = new UnoModel();

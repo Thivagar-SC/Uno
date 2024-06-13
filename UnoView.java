@@ -3,10 +3,18 @@ import java.awt.*;
 import java.awt.event.MouseListener; //recode later if time so this is unneeded
 import java.util.*;
 
+/**
+ * UnoView
+ * View displaying game
+ * 
+ * @author Thivagar Kesavan
+ * @since 2024/06/12
+ */
 public class UnoView extends JPanel {
-  private UnoModel model;
-  private ArrayList<RoundedJPane> cards = new ArrayList<RoundedJPane>();
+  private UnoModel model; //model of game
+  private ArrayList<RoundedJPane> cards = new ArrayList<RoundedJPane>();  //display of users cards
 
+  //components for gui
   private JPanel menu = new JPanel();
   private JPanel gameSelect = new JPanel();
   private JButton startGame = new JButton();
@@ -18,6 +26,13 @@ public class UnoView extends JPanel {
   private RoundedJPane deck;
   private RoundedJPane currentCard;
 
+  /**
+     * UnoView
+     * UnoView Constructor
+     * 
+     * @author Thivagar
+     * @param uModel - model of game
+     */
   public UnoView(UnoModel uModel) {
     super();
     this.model = uModel;
@@ -27,10 +42,17 @@ public class UnoView extends JPanel {
     this.deck = new RoundedJPane(50, 4);
   }
 
+  /**
+     * getPlayerName
+     * returns players username
+     * 
+     * TO be moved to model in due time
+     */
   public String getPlayerName() {
     return this.nameInput.getText();
   }
 
+  //To be moved to model l8r
   public int getRounds() {
     int number = -1;
     try {
@@ -41,6 +63,10 @@ public class UnoView extends JPanel {
     return number;
   }
 
+  /**mainMenu
+   * Opening display of uno game
+   * @author Thivagar
+   */
   public void mainMenu() { // gui temporary for use
     this.setLayout(new BorderLayout());
     this.removeAll();
@@ -52,6 +78,10 @@ public class UnoView extends JPanel {
     this.add(this.menu, BorderLayout.WEST);
   }
 
+  /**gameSetup
+   * Display game setup of uno (rounds etc)
+   * @author Thivagar
+   */
   public void gameSetup() {
     this.numberOfRounds.setText("How many rounds will you play?");
     this.playerName.setText("Please enter your username");
@@ -62,6 +92,7 @@ public class UnoView extends JPanel {
     this.playGame.setText("Play!");
     this.playGame.setPreferredSize(new Dimension(400, 200));
 
+    //adding
     this.gameSelect.add(numberOfRounds);
     this.gameSelect.add(roundInput);
     this.gameSelect.add(playerName);
@@ -72,13 +103,21 @@ public class UnoView extends JPanel {
 
   }
 
+  /**setHand
+   * adding new cards to show
+   * @author Thivagar
+   */
   public void setHand() {
-    this.cards.clear();
-    for (int x = 0; x < this.model.getCurrentPlayer().getHand().size(); x++) {
+    this.cards.clear(); //reset cards as order of cards may change from sorting
+    for (int x = 0; x < this.model.getCurrentPlayer().getHand().size(); x++) {  //for each card player has
       this.cards.add(new RoundedJPane(60, this.model.getCurrentPlayer().getHand().get(x).getColour()));
     }
   }
 
+  /**displayDeck
+   * displays deck of cards
+   * @author Thivagar
+   */
   public void displayDeck() {
     ImgComponent img = new ImgComponent("_HiddenCard.png");
     this.deck.setBounds(50, 100, 211, 336);
@@ -87,17 +126,25 @@ public class UnoView extends JPanel {
     this.add(deck);
   }
 
+  /**displayCurrentCard
+   * displays card in play
+   * @author Thivagar
+   */
   public void displayCurrentCard(){
       //this.currentCard = this.model.get
   }
 
-  public void displayCards3() { // another test
+  /**displayCards
+   * displays cards of user
+   * @author Thivagar
+   */
+  public void displayCards() { 
     this.setHand();
     this.removeAll();
     this.setLayout(null);
 
     ImgComponent img;
-    for (int x = 0; x < this.model.getCurrentPlayer().getHand().size(); x++) {
+    for (int x = 0; x < this.model.getCurrentPlayer().getHand().size(); x++) {  //for each card
       Card currentCard = this.model.getCurrentPlayer().getHand().get(x);
       this.cards.get(x).setBounds(((this.getWidth()-200)/(this.model.getCurrentPlayer().getHand().size()+1)*x)+20, 500, 211, 336);
       img = new ImgComponent(currentCard.getValue() + ".png".trim());
@@ -106,10 +153,14 @@ public class UnoView extends JPanel {
       this.add(cards.get(x));
     }
 
-    this.registerControllers();
+    this.registerControllers(); //new card also needs to be clickable
     this.refresh();
   }
 
+  /**registerControllers
+   * register available user actions
+   * @author Thivagar
+   */
   public void registerControllers() {
     // Variable Declaration
     CardSelector setup = new CardSelector(this.model); // Setup
@@ -118,13 +169,13 @@ public class UnoView extends JPanel {
 
     // set listeners
 
-    if (this.model.getNumberOfRound() > 0) {
-      for (MouseListener listener : this.deck.getMouseListeners()) {
+    if (this.model.getNumberOfRound() > 0) {  //if rounds have been chosen
+      for (MouseListener listener : this.deck.getMouseListeners()) {  //remove prior listeners
         this.deck.removeMouseListener(listener);
-      }
+      } //SHOULD CHANGE LATER 
 
-      for (int x = 0; x < cards.size(); x++) {
-        for (MouseListener listener : this.cards.get(x).getMouseListeners()) {
+      for (int x = 0; x < cards.size(); x++) {  //for each card
+        for (MouseListener listener : this.cards.get(x).getMouseListeners()) { //remove prior listeners
           this.deck.removeMouseListener(listener);
         }
         this.cards.get(x).addMouseListener(setup);
@@ -132,14 +183,22 @@ public class UnoView extends JPanel {
       this.deck.addMouseListener(addCard);
     }
 
-    this.startGame.addActionListener(mSelect);
+    this.startGame.addActionListener(mSelect);//tba
     this.playGame.addActionListener(mSelect);
   }
 
+  /**getCards
+   * returns all the card visuals
+   * @author Thivagar
+   */
   public ArrayList<RoundedJPane> getCards() {
     return this.cards;
   }
 
+  /**raiseCard
+   * raises selected card
+   * @author Thivagar
+   */
   public void raiseCard(Object aCard) {
     for (int x = 0; x < this.cards.size(); x++) {
       if (this.cards.get(x).equals(aCard)) {
@@ -149,6 +208,10 @@ public class UnoView extends JPanel {
     this.refresh();
   }
 
+  /**dropCard
+   * lowers selected card
+   * @author Thivagar
+   */
   public void dropCard(Object aCard) {
     for (int x = 0; x < this.cards.size(); x++) {
       if (this.cards.get(x).equals(aCard)) {
@@ -158,12 +221,16 @@ public class UnoView extends JPanel {
     this.refresh();
   }
 
+  /**update
+   * updates gui based on changes
+   * @author Thivagar
+   */
   public void update() {
     if (this.model.getMenuSelect()) {
       this.removeAll();
       this.gameSetup();
     } else if (this.model.getNumberOfRound() >= 0) {
-      this.displayCards3();
+      this.displayCards();
       this.displayDeck();
     } else if (this.model.getNumberOfRound() < 0) {
       this.roundInput.setText("Input a valid number");
@@ -171,6 +238,10 @@ public class UnoView extends JPanel {
     this.refresh();
   }
 
+  /**refresh
+   * updates gui to show new changes
+   * @author Thivagar
+   */
   public void refresh() {
     this.repaint();
     this.revalidate();

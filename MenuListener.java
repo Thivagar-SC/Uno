@@ -1,19 +1,39 @@
 import java.awt.event.*;
 
-public class MenuListener implements ActionListener{
-    private UnoModel model;
+/**
+ * MenuListener
+ * Detects what user wants to do in main menu
+ * 
+ * @author Thivagar Kesavan
+ * @since 2024/06/12
+ */
+public class MenuListener implements ActionListener {
+    private UnoModel model; // model of game
 
-    public MenuListener(UnoModel model){
+    /**
+     * MenuListener
+     * MenuListener Constructor
+     * 
+     * @author Thivagar
+     * @param model - model of game
+     */
+    public MenuListener(UnoModel model) {
         this.model = model;
     }
 
-    public void actionPerformed(ActionEvent e){
-        if (e.getActionCommand().equals("Start")){
+    /**
+     * actionPerformed
+     * detects if user interacts with a component with this listener
+     * 
+     * @author Thivagar
+     * @param e - event preformed by user
+     */
+    public void actionPerformed(ActionEvent e) {
+        if (e.getActionCommand().equals("Start")) { // if user hits start button
             model.startSelection();
-        }
-        else if(e.getActionCommand().equals("Play!")){
+        } else if (e.getActionCommand().equals("Play!")) { // if user hits play button
             model.startGame();
         }
     }
-    
+
 }
