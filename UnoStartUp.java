@@ -25,6 +25,7 @@ public class UnoStartUp
         test.setResizable(false);
         test.setContentPane(a);
         test.setVisible(true);
+        
         // Code from https://docs.oracle.com/javase/tutorial/uiswing/lookandfeel/nimbus.html
         try {
             for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {

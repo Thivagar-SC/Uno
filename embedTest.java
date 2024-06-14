@@ -6,12 +6,27 @@ import java.net.*;
 public class embedTest {
     public static void main(String[] args) {
         JFrame test = new JFrame();
-        File te = new File("temp");
-        File test2 = new File(te.getName(),"_HiddenCard - Copy.png");
-        System.out.println(test2.getAbsolutePath());
-        ImgComponent testing = new ImgComponent(test2.getAbsolutePath());
         test.setSize(new Dimension(100,100));
         test.setVisible(true);
+        File te = new File("temp");
+        while (true) {
+            
+        
+        for (int x = 1; x<=100;x++) {
+            String num = "";
+            String number = String.valueOf(x);
+            for (int y =0; y<3-number.length();y++){
+                num+="0";
+            }
+            File test2 = new File(te.getName(),"ezgif-frame-"+num+x+".png");
+        ImgComponent testing = new ImgComponent(test2.getAbsolutePath());
+        testing.setSize(new Dimension(1000,1000));
         test.setContentPane(testing);
+        //test.repaint();
+        test.revalidate();
+
+        }
+    }
+        
     }
 }
