@@ -12,7 +12,7 @@ public class embedTest {
         while (true) {
             
         
-        for (int x = 1; x<=100;x++) {
+        for (int x = 1; x<=10;x++) {
             String num = "";
             String number = String.valueOf(x);
             for (int y =0; y<3-number.length();y++){
@@ -24,7 +24,11 @@ public class embedTest {
         test.setContentPane(testing);
         //test.repaint();
         test.revalidate();
-
+            try {
+                Thread.sleep(100);
+            } catch (Exception e) {
+                // TODO: handle exception
+            }
         }
     }
         
