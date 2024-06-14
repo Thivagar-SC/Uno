@@ -4,6 +4,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseListener; //recode later if time so this is unneeded
 import java.util.*;
+import java.io.*;
 
 /**
  * UnoView
@@ -29,6 +30,7 @@ public class UnoView extends JPanel {
   private RoundedJPane deck= new RoundedJPane(50, 4);;
   private RoundedJPane currentCard;
   private PauseMenu pauseMenu;
+  private File cardFile = new File("Cards");
 
   /**
    * UnoView
@@ -137,7 +139,7 @@ public class UnoView extends JPanel {
    * @author Thivagar
    */
   private void displayDeck() {
-    ImgComponent img = new ImgComponent("_HiddenCard.png");
+    ImgComponent img = new ImgComponent((new File(cardFile,"_HiddenCard.png")).getAbsolutePath());
     this.deck.setBounds(50, 100, 211, 336);
     img.setBounds(0, 0, 211, 336);
     this.deck.add(img);
@@ -153,7 +155,7 @@ public class UnoView extends JPanel {
    */
   private void displayCurrentCard() {
     this.currentCard = new RoundedJPane(50, this.model.getCurrentCard().getColour());
-    ImgComponent a = new ImgComponent((this.model.getCurrentCard().getValue() + ".png").trim());
+    ImgComponent a = new ImgComponent(new File(cardFile,(this.model.getCurrentCard().getValue() + ".png").trim()).getAbsolutePath());
     a.setBounds(0, 0, 211, 336);
     this.currentCard.add(a);
     this.currentCard.setBounds(500, 100, 211, 336);
@@ -182,7 +184,7 @@ public class UnoView extends JPanel {
       Card currentCard = this.model.getCurrentPlayer().getHand().get(x);
       this.cards.get(x).setBounds(
           ((this.getWidth() - 200) / (this.model.getCurrentPlayer().getHand().size() + 1) * x) + 20, 500, 211, 336);
-      img = new ImgComponent(currentCard.getValue() + ".png".trim());
+      img = new ImgComponent(new File(cardFile,(currentCard.getValue() + ".png".trim())).getAbsolutePath());
       img.setBounds(0, 0, 211, 336);
       this.cards.get(x).add(img);
       this.add(cards.get(x));
