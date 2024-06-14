@@ -31,7 +31,6 @@ public class PauseMenu extends JPanel {
         this.setVisible(this.isPaused);
         this.setLayout(new FlowLayout());
 
-
         // setting text
         resumeButton = new JButton("Resume");
         resumeButton.setFont(new Font("Arial", Font.BOLD, 20));
@@ -49,8 +48,8 @@ public class PauseMenu extends JPanel {
 
         // Background for pause menu
         JPanel buttonsBackground = new JPanel();
-        buttonsBackground.setPreferredSize(new Dimension(300,180));
         this.add(buttonsBackground);
+        buttonsBackground.setPreferredSize(new Dimension(300,180));
         buttonsBackground.setLayout(new BoxLayout(buttonsBackground, BoxLayout.Y_AXIS));
 
         // OUTPUT
@@ -61,8 +60,6 @@ public class PauseMenu extends JPanel {
         buttonsBackground.add(Box.createVerticalStrut(10));
         buttonsBackground.add(quitGameButton);
         buttonsBackground.add(Box.createVerticalStrut(20));
-
-        buttonsBackground.setAlignmentX(CENTER_ALIGNMENT);
 
     }
 
