@@ -18,6 +18,7 @@ public class PauseMenu extends JPanel {
     public JButton resumeButton; // Interactable buttons
     public JButton quitToMainMenuButton;
     public JButton quitGameButton;
+    public JPanel buttonsBackground;
 
     /**
      * pauseMenu
@@ -29,7 +30,7 @@ public class PauseMenu extends JPanel {
         super();
         isPaused = false;
         this.setVisible(this.isPaused);
-        this.setLayout(new FlowLayout());
+        this.setLayout(null);
 
         // setting text
         resumeButton = new JButton("Resume");
@@ -47,19 +48,20 @@ public class PauseMenu extends JPanel {
         quitGameButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         // Background for pause menu
-        JPanel buttonsBackground = new JPanel();
+        buttonsBackground = new JPanel();
         this.add(buttonsBackground);
         buttonsBackground.setPreferredSize(new Dimension(300,180));
         buttonsBackground.setLayout(new BoxLayout(buttonsBackground, BoxLayout.Y_AXIS));
+        this.buttonsBackground.setBounds(0, 100, 300, 180);
 
         // OUTPUT
-        buttonsBackground.add(Box.createVerticalStrut(40));
+        //buttonsBackground.add(Box.createVerticalStrut(40));
         buttonsBackground.add(resumeButton);
-        buttonsBackground.add(Box.createVerticalStrut(10));
+        //buttonsBackground.add(Box.createVerticalStrut(10));
         buttonsBackground.add(quitToMainMenuButton);
-        buttonsBackground.add(Box.createVerticalStrut(10));
+        //buttonsBackground.add(Box.createVerticalStrut(10));
         buttonsBackground.add(quitGameButton);
-        buttonsBackground.add(Box.createVerticalStrut(20));
+        //buttonsBackground.add(Box.createVerticalStrut(20));
 
     }
 
