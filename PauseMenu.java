@@ -52,16 +52,16 @@ public class PauseMenu extends JPanel {
         this.add(buttonsBackground);
         buttonsBackground.setPreferredSize(new Dimension(300,180));
         buttonsBackground.setLayout(new BoxLayout(buttonsBackground, BoxLayout.Y_AXIS));
-        this.buttonsBackground.setBounds(0, 100, 300, 180);
+        this.buttonsBackground.setBounds(350, 350, 300, 180);
 
         // OUTPUT
-        //buttonsBackground.add(Box.createVerticalStrut(40));
+        buttonsBackground.add(Box.createVerticalStrut(40));
         buttonsBackground.add(resumeButton);
-        //buttonsBackground.add(Box.createVerticalStrut(10));
+        buttonsBackground.add(Box.createVerticalStrut(10));
         buttonsBackground.add(quitToMainMenuButton);
-        //buttonsBackground.add(Box.createVerticalStrut(10));
+        buttonsBackground.add(Box.createVerticalStrut(10));
         buttonsBackground.add(quitGameButton);
-        //buttonsBackground.add(Box.createVerticalStrut(20));
+        buttonsBackground.add(Box.createVerticalStrut(20));
 
     }
 
