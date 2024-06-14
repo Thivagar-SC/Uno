@@ -75,7 +75,6 @@ public class UnoView extends JPanel {
    */
   private void mainMenu() { // gui temporary for use
     this.setLayout(new BorderLayout());
-
     this.cards.clear();
     this.removeAll();
     this.startGame.setText("Start");
@@ -99,6 +98,9 @@ public class UnoView extends JPanel {
     this.playerName.setText("Please enter your username");
     this.roundInput.setPreferredSize(new Dimension(650, 50));
     this.nameInput.setPreferredSize(new Dimension(650, 50));
+    this.roundInput.setText("");
+    this.nameInput.setText("");
+
     this.numberOfRounds.setEditable(false);
     this.playerName.setEditable(false);
     this.playGame.setText("Play!");
@@ -205,6 +207,7 @@ public class UnoView extends JPanel {
 
     // set listeners
 
+    System.out.println(this.model.getNumberOfRound());
     for (KeyListener listener : this.getKeyListeners()) {
       this.removeKeyListener(listener);
     }
@@ -212,8 +215,9 @@ public class UnoView extends JPanel {
       this.pauseMenu.quitToMainMenuButton.removeActionListener(listener);
       this.pauseMenu.quitGameButton.removeActionListener(listener);
       this.pauseMenu.resumeButton.removeActionListener(listener);
+    
     }
-    if (this.model.getNumberOfRound() > 0) { // if rounds have been chosen
+    if (this.model.getState()==2) { // if rounds have been chosen
       for (MouseListener listener : this.deck.getMouseListeners()) { // remove prior listeners
         this.deck.removeMouseListener(listener);
       } // SHOULD CHANGE LATER
@@ -224,14 +228,20 @@ public class UnoView extends JPanel {
         }
         this.cards.get(x).addMouseListener(setup);
       }
+      
     this.deck.addMouseListener(addCard);
     this.addKeyListener(pauseGame);
+    
     this.pauseMenu.quitGameButton.addActionListener(pauseGame);
     this.pauseMenu.quitToMainMenuButton.addActionListener(pauseGame);
     this.pauseMenu.resumeButton.addActionListener(pauseGame);
+      
+  }
+    for (ActionListener a : this.startGame.getActionListeners()) {
+        this.startGame.removeActionListener(a);
     }
     this.playGame.addActionListener(mSelect);
-      this.startGame.addActionListener(mSelect);// tba
+    this.startGame.addActionListener(mSelect);// tba
   }
 
   /**
@@ -307,8 +317,6 @@ public class UnoView extends JPanel {
       this.gameSetup();
         break;
       case 2:
-      this.roundInput.setText("");
-      this.nameInput.setText("");
       this.displayCards();
       this.displayDeck();
       this.displayCurrentCard();
@@ -333,7 +341,6 @@ public class UnoView extends JPanel {
   private void setPauseState() {
     this.pauseMenu.setBounds(0, 0, 1000, 1000);
     // this.pauseMenu.setBackground(Color.BLACK);
-    this.add(pauseMenu);
     this.pauseMenu.setVisibility();
 
     this.currentCard.setVisible(!this.currentCard.isVisible());
@@ -341,7 +348,7 @@ public class UnoView extends JPanel {
     for (int x = 0; x < this.cards.size(); x++) {
       this.cards.get(x).setVisible(!this.cards.get(x).isVisible());
     }
-
+    this.add(pauseMenu);
     this.refresh();
   }
 

@@ -29,12 +29,12 @@ public class UnoModel {
     private boolean menuSelection;
     private int state; //state of game
 
-    private final int MENU = 0;
-    private final int SELECTION= 1;
-    private final int GAME = 2;
-    private final int PAUSED = 3;
-    private final int ENDGAME = 4;
-    private final int RESET = 5;
+    public final int MENU = 0;
+    public final int SELECTION= 1;
+    public final int GAME = 2;
+    public final int PAUSED = 3;
+    public final int ENDGAME = 4;
+    public final int RESET = 5;
 
 
 
@@ -81,6 +81,7 @@ public class UnoModel {
     }
 
     public void reset(){
+        this.view.update();
         this.state = this.RESET;
         this.view.update();
         this.mainMenu();
@@ -99,6 +100,10 @@ public class UnoModel {
 
     public int getState(){
         return this.state;
+    }
+
+    public void setState(int x){
+        this.state = x;
     }
     /**
      * Checks if the current round is over.
@@ -182,6 +187,7 @@ public class UnoModel {
 
     public void pauseGame()
     {
+
         this.state = this.PAUSED;
         view.update();
     }
@@ -221,17 +227,20 @@ public class UnoModel {
         return true; // placeholder
     }
 
+
+
     /**
      * Starts the game.
      */
     public void startGame() {
         int numberRounds;
         String nameOfPlayer;
-        this.state = 2;
+        this.state = 1;
         this.menuSelection = false;
         nameOfPlayer = this.view.getPlayerName();
         numberRounds = this.view.getRounds();
         if (numberRounds > 0) {
+            this.state = 2;
             this.numberOfRounds = numberRounds;
             player = new Player(0, nameOfPlayer); // player number temporary
             this.deck = new Deck();
@@ -313,6 +322,7 @@ public class UnoModel {
 
 
     public void drawCard() {
+        this.state = this.GAME;
         this.player.addCard(this.deck.drawCard(), "TBA");
         this.view.update();
     }
