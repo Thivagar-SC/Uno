@@ -139,12 +139,17 @@ public class UnoView extends JPanel {
    * @author Thivagar
    */
   private void displayDeck() {
-    ImgComponent img = new ImgComponent((new File(cardFile,"_HiddenCard.png")).getAbsolutePath());
+    try{
+    ImgComponent img = new ImgComponent((new File(cardFile,"_HiddenCard.png")).getCanonicalPath());
     this.deck.setBounds(50, 100, 211, 336);
     img.setBounds(0, 0, 211, 336);
     this.deck.add(img);
     this.add(deck);
     this.deck.setVisible(true);
+    }
+    catch(Exception e){
+      
+    }
   }
 
   /**
