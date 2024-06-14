@@ -356,7 +356,7 @@ public class UnoView extends JPanel {
     this.deck.setVisible(!this.deck.isVisible());
     for (int x = 0; x < this.cards.size(); x++) {
       this.cards.get(x).setVisible(!this.cards.get(x).isVisible());
-    } 
+    }
     this.add(pauseMenu);
     this.refresh();
   }
