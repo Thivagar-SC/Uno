@@ -43,34 +43,6 @@ public class UnoModel {
      */
     public UnoModel() {
         super();
-        try
-        {
-            File saveFile;
-            int fileNumber = 1; //Starts with the first file number
-            while (true)
-            {
-                saveFile = new File("SaveFiles/Save File #" + fileNumber + ".txt");
-                if (!saveFile.exists())
-                {
-                    break;
-                }
-                fileNumber++; //Increments the file number if the file already exists
-            }
-
-            if (saveFile.createNewFile())
-            {
-                System.out.println("File created: " + saveFile.getName());
-            }
-            else
-            {
-                System.out.println("File already exists.");
-            }
-        }
-        catch (IOException e)
-        {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
     }
 
     public void mainMenu(){
@@ -235,6 +207,7 @@ public class UnoModel {
     public void startGame() {
         int numberRounds;
         String nameOfPlayer;
+        this.createSaveFile();
         this.state = 1;
         this.menuSelection = false;
         nameOfPlayer = this.view.getPlayerName();
@@ -247,12 +220,50 @@ public class UnoModel {
             for (int x = 1; x <= 7; x++) {
                 this.player.addCard(this.deck.drawCard(), "TBA");
             }
+
         } else {
             this.numberOfRounds = -1;
         }
 
         this.placeStarterCard();
         this.view.update();
+    }
+
+    /**
+    * Creates a save file after user starts the game
+    */
+    public void createSaveFile()
+    {
+        try
+        {
+            File saveFile = null;
+            int fileNumber = 1; //Starts with the first file number
+
+            while (this.state == 1)
+            {
+                saveFile = new File("SaveFiles/Save File #" + fileNumber + ".txt");
+                if (!saveFile.exists())
+                {
+                    break;
+                }
+                fileNumber++; //Increments the file number if the file already exists
+                System.out.println(fileNumber);
+            }
+
+            if (saveFile != null && saveFile.createNewFile())
+            {
+                System.out.println("File created: " + saveFile.getName());
+            }
+            else
+            {
+                System.out.println("File already exists.");
+            }
+        }
+        catch (IOException e)
+        {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
     }
 
     public void placeStarterCard(){
