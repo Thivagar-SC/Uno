@@ -44,7 +44,7 @@ public class UnoView extends JPanel {
     this.model = uModel;
     this.mainMenu();
     this.pauseMenu = new PauseMenu();
-    this.registerControllers();
+    this.registerStarterControllers();
     this.model.setGUI(this);
   }
 
@@ -203,7 +203,6 @@ public class UnoView extends JPanel {
   private void registerControllers() {
     // Variable Declaration
     CardSelector setup = new CardSelector(this.model); // Setup
-    MenuListener mSelect = new MenuListener(this.model);
     deckListener addCard = new deckListener(this.model);
     escListener pauseGame = new escListener(this.model, this);
 
@@ -239,9 +238,12 @@ public class UnoView extends JPanel {
     this.pauseMenu.resumeButton.addActionListener(pauseGame);
       
   }
-    for (ActionListener a : this.startGame.getActionListeners()) {
-        this.startGame.removeActionListener(a);
-    }
+
+    
+  }
+
+  public void registerStarterControllers(){
+    MenuListener mSelect = new MenuListener(this.model);
     this.playGame.addActionListener(mSelect);
     this.startGame.addActionListener(mSelect);// tba
   }
